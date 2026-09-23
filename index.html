@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NLC India Limited | Navratna PSU — Mining. Power. Renewal.</title>
+<meta name="description" content="NLC India Limited — Navratna PSU. Seven decades of lignite mining, thermal power generation and renewable energy expansion in India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   NLC INDIA LIMITED — design tokens
+   Palette derived from brand board:
+   deep strata: #4c0028 #7f0043 #8e004c #a80059 #c10067
+   glow tints:  #ff1e96 #ff42a7 #ff66b7 #ff89c8
+   ============================================================ */
+:root{
+  --ink:            #2a0316;
+  --ground:         #1a0410;
+  --ground-2:       #26071a;
+  --maroon-deep:    #4c0028;
+  --maroon-mid:     #7f0043;
+  --magenta:        #8e004c;
+  --rose:           #a80059;
+  --primary:        #c10067;
+  --bright:         #ff1e96;
+  --tint-1:         #ff89c8;
+  --tint-2:         #ff66b7;
+  --tint-3:         #ff42a7;
+  --paper:          #fff6fa;
+  --paper-2:        #ffeaf3;
+  --line:           rgba(76,0,40,0.14);
+  --line-light:     rgba(255,255,255,0.14);
+
+  --font-display:   'Fraunces', serif;
+  --font-body:      'Space Grotesk', sans-serif;
+  --font-mono:      'JetBrains Mono', monospace;
+
+  --container:      1240px;
+  --radius:         18px;
+  --radius-sm:      10px;
+  --ease:           cubic-bezier(.16,.8,.24,1);
+
+  --surface:        #ffffff;
+  --surface-2:      #ffffff;
+  --body-text:      #5a1130;
+
+  color-scheme: light;
+  transition: background-color .4s var(--ease), color .4s var(--ease);
+}
+
+/* ---------- dark mode overrides ---------- */
+html[data-theme="dark"]{
+  --ink:            #ffe9f2;
+  --paper:          #150210;
+  --paper-2:        #200417;
+  --line:           rgba(255,232,244,0.12);
+  --surface:        #240719;
+  --surface-2:      #2b0a1f;
+  --body-text:      #e7bfd3;
+  color-scheme: dark;
+}
+html[data-theme="dark"] body{ background:var(--paper); }
+html[data-theme="dark"] .core-card,
+html[data-theme="dark"] .glass-card,
+html[data-theme="dark"] .glow-card,
+html[data-theme="dark"] .value-cell,
+html[data-theme="dark"] .dash-card,
+html[data-theme="dark"] .news-card,
+html[data-theme="dark"] .app-card,
+html[data-theme="dark"] .jv-list span{
+  background:var(--surface); border-color:var(--line);
+}
+html[data-theme="dark"] .core-card h3,
+html[data-theme="dark"] .glass-card h3,
+html[data-theme="dark"] .vm-text,
+html[data-theme="dark"] .glow-card h3,
+html[data-theme="dark"] .dash-card h4,
+html[data-theme="dark"] .news-card h4,
+html[data-theme="dark"] .timeline-item h4,
+html[data-theme="dark"] .section-head h2,
+html[data-theme="dark"] .app-card,
+html[data-theme="dark"] .value-word,
+html[data-theme="dark"] .contact-detail span:last-child{
+  color:var(--ink);
+}
+html[data-theme="dark"] .core-card p,
+html[data-theme="dark"] .vm-list li,
+html[data-theme="dark"] .glow-card p,
+html[data-theme="dark"] .dash-card p,
+html[data-theme="dark"] .news-card p,
+html[data-theme="dark"] .timeline-item p,
+html[data-theme="dark"] .section-lede,
+html[data-theme="dark"] .careers-point p{
+  color:var(--body-text);
+}
+html[data-theme="dark"] .vm, html[data-theme="dark"] .values, html[data-theme="dark"] .quick-apps{ background:var(--paper-2); }
+html[data-theme="dark"] .contact{ background:var(--paper); }
+html[data-theme="dark"] .form-row input, html[data-theme="dark"] .form-row textarea{
+  background:var(--surface-2); color:var(--ink); border-color:var(--line);
+}
+html[data-theme="dark"] .dropdown{ background:var(--surface); border-color:var(--line); }
+html[data-theme="dark"] .dropdown a{ color:var(--ink); }
+html[data-theme="dark"] .dropdown a:hover{ background:var(--paper-2); }
+html[data-theme="dark"] .dropdown-item > a{ color:var(--ink); }
+html[data-theme="dark"] .submenu{ background:var(--surface); border-color:var(--line); }
+html[data-theme="dark"] .submenu a{ color:var(--ink); }
+html[data-theme="dark"] .submenu a:hover{ background:var(--paper-2); }
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+h1,h2,h3,h4{ font-family:var(--font-display); margin:0; font-weight:600; color:var(--maroon-deep); }
+p{ margin:0; }
+button{ font-family:inherit; cursor:pointer; }
+::selection{ background:var(--primary); color:#fff; }
+
+.container{ max-width:var(--container); margin:0 auto; padding:0 32px; }
+
+/* ---------- reveal animation ---------- */
+.reveal, .reveal-up{ opacity:0; }
+.reveal{ transform:translateY(24px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+.reveal-up{ display:inline-block; transform:translateY(1.2em); animation:revealUp .9s var(--ease) forwards; animation-delay:calc(var(--d,0) * 90ms + 200ms); }
+@keyframes revealUp{ to{ opacity:1; transform:translateY(0); } }
+
+/* ---------- loader ---------- */
+.loader{
+  position:fixed; inset:0; z-index:9999; background:var(--ground);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px;
+  transition:opacity .6s var(--ease), visibility .6s var(--ease);
+}
+.loader.hidden{ opacity:0; visibility:hidden; pointer-events:none; }
+.loader-seam{
+  width:180px; height:6px; border-radius:6px; overflow:hidden;
+  background:linear-gradient(90deg,var(--maroon-deep),var(--primary),var(--bright),var(--primary),var(--maroon-deep));
+  background-size:300% 100%; animation:seamSlide 1.4s linear infinite;
+}
+@keyframes seamSlide{ 0%{background-position:0% 0;} 100%{background-position:300% 0;} }
+.loader-text{ display:flex; flex-direction:column; align-items:center; gap:6px; }
+.loader-label{ font-family:var(--font-mono); letter-spacing:.28em; color:#fff; font-size:.78rem; }
+.loader-sub{ font-family:var(--font-mono); color:var(--tint-1); font-size:.68rem; letter-spacing:.18em; }
+
+/* ---------- grain overlay ---------- */
+.grain{
+  position:fixed; inset:0; pointer-events:none; z-index:5; opacity:.035; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   UTILITY BAR + NAV
+   ============================================================ */
+.utility-bar{
+  background:var(--ground); color:#fff9fb; font-family:var(--font-mono); font-size:.72rem;
+  position:relative; z-index:101;
+}
+.utility-inner{
+  max-width:var(--container); margin:0 auto; padding:7px 32px;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.utility-tag{ letter-spacing:.08em; color:var(--tint-1); }
+.utility-right{ display:flex; align-items:center; gap:18px; }
+.utility-right a{ opacity:.85; transition:opacity .25s; }
+.utility-right a:hover{ opacity:1; color:var(--tint-2); }
+.lang-toggle{ border:1px solid var(--line-light); padding:3px 10px; border-radius:999px; }
+
+.theme-toggle{
+  position:relative; width:34px; height:34px; border-radius:50%; border:1px solid var(--line-light);
+  background:rgba(255,255,255,.06); display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:.9rem; overflow:hidden; padding:0; flex:none;
+}
+.theme-toggle:hover{ background:rgba(255,255,255,.14); }
+.theme-icon{ position:absolute; transition:transform .4s var(--ease), opacity .4s var(--ease); }
+.theme-icon-sun{ transform:translateY(0); opacity:1; color:var(--tint-1); }
+.theme-icon-moon{ transform:translateY(160%); opacity:0; color:var(--tint-2); }
+html[data-theme="dark"] .theme-icon-sun{ transform:translateY(-160%); opacity:0; }
+html[data-theme="dark"] .theme-icon-moon{ transform:translateY(0); opacity:1; }
+
+.nav{
+  position:sticky; top:0; z-index:100;
+  background:rgba(26,4,16,0.92); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-light);
+}
+.nav-inner{
+  max-width:var(--container); margin:0 auto; padding:14px 32px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.brand{ display:flex; align-items:center; gap:14px; }
+.brand-badge{
+  width:56px; height:56px; flex:none; display:block; border-radius:50%;
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.35));
+}
+.brand-text{ display:flex; flex-direction:column; line-height:1.2; }
+.brand-full{ font-family:var(--font-display); font-size:1.15rem; font-weight:600; color:#fff; }
+.brand-tag{ font-family:var(--font-mono); font-size:.62rem; letter-spacing:.06em; color:var(--tint-1); }
+
+.nav-links{ display:flex; align-items:center; gap:30px; }
+.nav-item{ position:relative; }
+.nav-item a{
+  font-size:.92rem; color:#f4dde9; position:relative; padding:6px 0;
+  display:inline-flex; align-items:center; gap:5px;
+}
+.nav-item a::after{
+  content:''; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--tint-2);
+  transition:width .3s var(--ease);
+}
+.nav-item a:hover::after{ width:100%; }
+.nav-item a:hover{ color:#fff; }
+.nav-item .caret{ font-size:.7rem; transition:transform .3s var(--ease); color:var(--tint-1); }
+.nav-item.has-dropdown.open .caret,
+.nav-item.has-dropdown:hover .caret{ transform:rotate(180deg); }
+
+/* dropdown panel */
+.dropdown{
+  position:absolute; top:calc(100% + 16px); left:50%; transform:translateX(-50%) translateY(-8px);
+  min-width:250px; background:#fff; border:1px solid var(--line);
+  border-radius:var(--radius-sm); box-shadow:0 24px 50px -20px rgba(20,3,11,.45);
+  padding:10px; display:flex; flex-direction:column; gap:2px;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .25s var(--ease), transform .25s var(--ease), visibility .25s;
+  z-index:50;
+}
+.nav-item.has-dropdown:hover .dropdown,
+.nav-item.has-dropdown.open .dropdown{
+  opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);
+}
+.dropdown a{
+  color:var(--maroon-deep); font-size:.92rem; font-weight:600; padding:11px 16px; border-radius:8px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.dropdown a::after{ display:none; }
+.dropdown a:hover{ background:var(--paper-2); color:var(--primary); }
+
+/* ---------- nested flyout submenu (second branch level) ---------- */
+.dropdown-item{ position:relative; }
+.dropdown-item > a{
+  color:var(--maroon-deep); font-size:.92rem; font-weight:600; padding:11px 16px; border-radius:8px;
+  display:flex; align-items:center; justify-content:space-between; gap:10px; cursor:pointer;
+  transition:background .2s var(--ease), color .2s var(--ease);
+}
+.sub-caret{ font-size:.8rem; opacity:.55; transition:transform .2s var(--ease); }
+.dropdown-item.has-submenu:hover > a,
+.dropdown-item.has-submenu.open > a{
+  background:var(--primary); color:#fff;
+}
+.dropdown-item.has-submenu:hover > a .sub-caret,
+.dropdown-item.has-submenu.open > a .sub-caret{ color:#fff; transform:translateX(2px); }
+
+.submenu{
+  position:absolute; left:calc(100% + 10px); top:-10px; min-width:260px;
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm);
+  box-shadow:0 24px 50px -20px rgba(20,3,11,.45); padding:10px;
+  display:flex; flex-direction:column; gap:2px;
+  opacity:0; visibility:hidden; pointer-events:none; transform:translateX(-8px);
+  transition:opacity .22s var(--ease), transform .22s var(--ease), visibility .22s;
+  z-index:60;
+}
+.dropdown-item.has-submenu:hover > .submenu,
+.dropdown-item.has-submenu.open > .submenu{
+  opacity:1; visibility:visible; pointer-events:auto; transform:translateX(0);
+}
+.submenu a{
+  color:var(--maroon-deep); font-size:.9rem; font-weight:600; padding:11px 16px; border-radius:8px;
+}
+.submenu a:hover{ background:var(--paper-2); color:var(--primary); }
+.nav-cta{
+  font-family:var(--font-mono); font-size:.78rem; letter-spacing:.05em;
+  background:var(--primary); color:#fff !important; padding:9px 18px; border-radius:999px;
+  border:1px solid var(--tint-3); transition:background .25s var(--ease), transform .25s var(--ease);
+}
+.nav-cta:hover{ background:var(--bright); transform:translateY(-1px); }
+
+.nav-toggle{
+  display:none; flex-direction:column; gap:5px; background:none; border:none; padding:8px;
+}
+.nav-toggle span{ width:24px; height:2px; background:#fff; border-radius:2px; }
+
+.mobile-menu{
+  display:none; position:fixed; top:0; right:0; height:100vh; width:min(78vw,320px);
+  background:var(--ground-2); z-index:110; flex-direction:column; padding:90px 30px; gap:6px;
+  transform:translateX(100%); transition:transform .4s var(--ease);
+  box-shadow:-10px 0 40px rgba(0,0,0,.4);
+}
+.mobile-menu.open{ transform:translateX(0); display:flex; }
+.mobile-menu a{ color:#fff2f7; font-size:1.05rem; padding:12px 0; border-bottom:1px solid var(--line-light); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative; min-height:100vh; display:flex; align-items:flex-end;
+  background:radial-gradient(ellipse at 30% 0%, #3a021f 0%, var(--ground) 55%, #0e0208 100%);
+  overflow:hidden; padding-bottom:0;
+}
+.hero::before{
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.4;
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(255,255,255,.05) 0px, rgba(255,255,255,.05) 2px,
+      transparent 2px, transparent 130px);
+  mask-image:radial-gradient(ellipse at 40% 20%, rgba(0,0,0,.9) 0%, transparent 70%);
+  animation:beamShift 11s linear infinite;
+}
+.hero-photo{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  opacity:.34; mix-blend-mode:luminosity; filter:saturate(1.4) contrast(1.05);
+}
+.hero-strata{ position:absolute; inset:0; z-index:1; opacity:.9; }
+.stratum{ position:absolute; left:0; right:0; height:22%; }
+.s1{ top:0; background:linear-gradient(180deg,transparent,rgba(168,0,89,.12)); }
+.s2{ top:16%; background:linear-gradient(180deg,rgba(142,0,76,.08),transparent); }
+.s3{ top:40%; background:linear-gradient(180deg,transparent,rgba(193,0,103,.10)); }
+.s4{ top:64%; background:linear-gradient(180deg,rgba(76,0,40,.28),transparent); }
+.s5{ top:82%; height:18%; background:linear-gradient(180deg,transparent,rgba(20,3,11,.7)); }
+#emberCanvas{ position:absolute; inset:0; z-index:2; width:100%; height:100%; }
+
+.hero-content{
+  position:relative; z-index:4; max-width:var(--container); width:100%;
+  margin:0 auto; padding:220px 32px 120px; color:#fff;
+}
+.hero-eyebrow{
+  font-family:var(--font-mono); letter-spacing:.22em; font-size:.78rem; color:var(--tint-1);
+  text-transform:uppercase; margin-bottom:18px; display:block;
+}
+.hero-title{
+  display:flex; flex-wrap:wrap; gap:0 22px; font-size:clamp(3rem,8vw,6.4rem);
+  line-height:.98; font-weight:600; margin-bottom:22px;
+}
+.hero-title span{ display:inline-block; }
+.hero-title-accent{ color:var(--tint-2); font-style:italic; font-weight:500; }
+.hero-subtitle{
+  font-size:clamp(1.15rem,2vw,1.5rem); font-family:var(--font-display); font-style:italic;
+  color:var(--tint-1); margin-bottom:18px; max-width:640px;
+}
+.hero-desc{
+  font-size:1.02rem; line-height:1.7; color:#f2dbe6; max-width:600px; margin-bottom:38px;
+}
+.hero-cta{ display:flex; flex-wrap:wrap; gap:16px; }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; padding:15px 30px;
+  border-radius:999px; font-size:.92rem; font-weight:600; letter-spacing:.02em;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+  border:1px solid transparent;
+}
+.btn-primary{
+  background:linear-gradient(180deg, var(--bright) 0%, var(--primary) 55%, var(--rose) 100%);
+  color:#fff; box-shadow:inset 0 1px 0 rgba(255,255,255,.45), 0 10px 30px -10px rgba(193,0,103,.7);
+}
+.btn-primary:hover{ transform:translateY(-3px); box-shadow:inset 0 1px 0 rgba(255,255,255,.55), 0 16px 34px -10px rgba(255,30,150,.55); }
+.btn-ghost{
+  background:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.02));
+  border-color:var(--line-light); color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25);
+}
+.btn-ghost:hover{ background:linear-gradient(180deg, rgba(255,255,255,.24), rgba(255,255,255,.05)); transform:translateY(-3px); }
+
+.scroll-cue{
+  position:absolute; bottom:26px; left:50%; transform:translateX(-50%); z-index:4;
+  width:26px; height:42px; border:2px solid var(--line-light); border-radius:20px;
+}
+.scroll-cue span{
+  display:block; width:5px; height:9px; border-radius:3px; background:var(--tint-2);
+  margin:6px auto; animation:scrollCue 1.8s ease-in-out infinite;
+}
+@keyframes scrollCue{ 0%,100%{ transform:translateY(0); opacity:1;} 50%{ transform:translateY(12px); opacity:.3;} }
+
+/* ============================================================
+   STAT BAND
+   ============================================================ */
+.stat-band{
+  background:linear-gradient(120deg,var(--maroon-deep),var(--magenta) 55%,var(--rose));
+  color:#fff; position:relative; z-index:3;
+}
+.stat-band-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+}
+.stat-block{
+  padding:36px 28px; text-align:center; border-right:1px solid var(--line-light);
+  display:flex; flex-direction:column; gap:8px;
+}
+.stat-block:last-child{ border-right:none; }
+.stat-num{
+  font-family:var(--font-mono); font-size:clamp(1.6rem,3vw,2.4rem); font-weight:600; color:#fff;
+}
+.stat-label{
+  font-size:.82rem; letter-spacing:.03em; color:var(--tint-1); text-transform:uppercase;
+}
+
+/* ============================================================
+   SECTION GENERIC
+   ============================================================ */
+.section{ padding:110px 0; position:relative; }
+.section-head{ max-width:680px; margin-bottom:56px; }
+.section-head.light .eyebrow,
+.section-head.light h2{ color:#fff; }
+.eyebrow{
+  font-family:var(--font-mono); font-size:.78rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--primary); display:block; margin-bottom:14px;
+}
+.section-head h2{ font-size:clamp(2rem,3.6vw,2.9rem); line-height:1.15; margin-bottom:18px; }
+.section-lede{ font-size:1.08rem; line-height:1.75; color:#5a1130; max-width:760px; }
+
+/* ---------- about / core grid ---------- */
+.core-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:20px; }
+.core-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:34px 30px; position:relative; overflow:hidden;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.core-card:hover{ transform:translateY(-6px); box-shadow:0 22px 40px -20px rgba(142,0,76,.35); }
+.core-index{
+  font-family:var(--font-mono); font-size:.78rem; color:var(--tint-2); letter-spacing:.1em;
+  display:block; margin-bottom:14px;
+}
+.core-card h3{ font-size:1.35rem; margin-bottom:12px; color:var(--maroon-deep); }
+.core-card p{ color:#5a1130; line-height:1.65; font-size:.96rem; }
+
+.stat-strip{ display:none; } /* superseded by .stat-band */
+
+/* ---------- vision / mission ---------- */
+.vm{ background:var(--paper-2); }
+.vm-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.glass-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:40px; box-shadow:0 20px 50px -30px rgba(76,0,40,.35);
+}
+.vm-tag{
+  font-family:var(--font-mono); font-size:.75rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--primary); display:block; margin-bottom:18px;
+}
+.vm-text{ font-family:var(--font-display); font-size:1.5rem; line-height:1.5; font-style:italic; color:var(--maroon-deep); }
+.vm-list li{
+  padding:12px 0 12px 30px; border-bottom:1px solid var(--line); position:relative; color:#4a0e28; font-size:1rem;
+}
+.vm-list li:last-child{ border-bottom:none; }
+.vm-list li::before{
+  content:''; position:absolute; left:0; top:19px; width:14px; height:2px; background:var(--primary);
+}
+.vm-esg{
+  margin-top:22px; padding-top:18px; border-top:1px dashed var(--line);
+  font-size:.92rem; font-style:italic; color:var(--body-text); line-height:1.6;
+}
+html[data-theme="dark"] .vm-esg{ color:var(--body-text); }
+
+/* ---------- segments (tilt grid) ---------- */
+.tilt-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.tilt-card{
+  position:relative; border-radius:var(--radius); overflow:hidden; min-height:340px;
+  display:flex; align-items:flex-end; isolation:isolate;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.tilt-card:hover{ transform:translateY(-8px) scale(1.015); box-shadow:0 26px 50px -20px rgba(76,0,40,.45); }
+.tilt-img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2;
+  filter:saturate(1.05); transition:transform .6s var(--ease);
+}
+.tilt-card:hover .tilt-img{ transform:scale(1.08); }
+.tilt-card::after{
+  content:''; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(0deg, rgba(26,4,16,.92) 10%, rgba(76,0,40,.55) 55%, rgba(142,0,76,.15) 100%);
+}
+.tilt-inner{ padding:26px 24px; color:#fff; position:relative; }
+.tilt-index{
+  font-family:var(--font-mono); color:var(--tint-2); font-size:.8rem; letter-spacing:.15em;
+  display:block; margin-bottom:8px;
+}
+.tilt-card h3{ color:#fff; font-size:1.2rem; margin-bottom:8px; }
+.tilt-card p{ color:#f2dbe6; font-size:.88rem; line-height:1.55; }
+
+/* ---------- sustainability ---------- */
+.sustainability{
+  background:linear-gradient(160deg,var(--ground) 0%,var(--maroon-deep) 100%);
+}
+.sustain-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:22px; }
+.ring-card{
+  background:rgba(255,255,255,.05); border:1px solid var(--line-light); border-radius:var(--radius);
+  padding:28px 18px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:16px;
+}
+.ring-card h4{ color:#fff; font-size:.98rem; font-weight:500; line-height:1.4; }
+.ring{ width:104px; height:104px; transform:rotate(-90deg); }
+.ring-track{ fill:none; stroke:rgba(255,255,255,.12); stroke-width:9; }
+.ring-fill{
+  fill:none; stroke:var(--tint-2); stroke-width:9; stroke-linecap:round;
+  stroke-dasharray:326.7; stroke-dashoffset:326.7; transition:stroke-dashoffset 1.4s var(--ease);
+}
+.ring-card:hover .ring-fill{ stroke:var(--bright); }
+
+/* ---------- renewables ---------- */
+.glow-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-bottom:44px; }
+.glow-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:32px 26px; text-align:left; transition:box-shadow .35s var(--ease), transform .35s var(--ease);
+}
+.glow-card:hover{ box-shadow:0 0 0 1px var(--tint-2), 0 20px 40px -22px rgba(255,66,167,.5); transform:translateY(-5px); }
+.glow-icon{
+  width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(145deg,var(--primary),var(--tint-3)); color:#fff; font-size:1.3rem; margin-bottom:18px;
+}
+.glow-card h3{ font-size:1.15rem; margin-bottom:10px; color:var(--maroon-deep); }
+.glow-card p{ color:#5a1130; font-size:.92rem; line-height:1.6; }
+.renewables-photo{ border-radius:var(--radius); overflow:hidden; }
+.renewables-photo img{ width:100%; height:340px; object-fit:cover; }
+
+/* ---------- values ---------- */
+.values{ background:var(--paper-2); }
+.values-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.value-cell{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm);
+  padding:22px 20px; display:flex; align-items:center; gap:16px;
+  transition:border-color .3s var(--ease), transform .3s var(--ease);
+}
+.value-cell:hover{ border-color:var(--tint-3); transform:translateY(-3px); }
+.value-letter{
+  font-family:var(--font-display); font-weight:700; font-size:1.7rem; color:var(--primary);
+  width:44px; text-align:center; flex:none;
+}
+.value-word{ font-size:.92rem; color:#4a0e28; line-height:1.3; }
+
+/* ---------- timeline ---------- */
+.timeline{ position:relative; padding-left:36px; }
+.timeline-line{ position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:var(--line); }
+.timeline-item{ position:relative; padding:0 0 44px 26px; }
+.timeline-item:last-child{ padding-bottom:0; }
+.timeline-dot{
+  position:absolute; left:-36px; top:4px; width:14px; height:14px; border-radius:50%;
+  background:var(--primary); border:3px solid var(--paper-2); box-shadow:0 0 0 2px var(--primary);
+}
+.timeline-year{
+  font-family:var(--font-mono); color:var(--primary); font-size:.85rem; letter-spacing:.08em;
+  display:block; margin-bottom:6px;
+}
+.timeline-item h4{ font-size:1.2rem; margin-bottom:8px; color:var(--maroon-deep); }
+.timeline-item p{ color:#5a1130; font-size:.95rem; line-height:1.6; max-width:640px; }
+
+/* ---------- investors ---------- */
+.dash-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.dash-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:30px 26px; transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.dash-card:hover{ transform:translateY(-5px); box-shadow:0 20px 40px -24px rgba(142,0,76,.4); }
+.dash-icon{
+  display:inline-flex; width:44px; height:44px; align-items:center; justify-content:center;
+  border-radius:50%; background:var(--paper-2); color:var(--primary); font-size:1.2rem; margin-bottom:16px;
+}
+.dash-card h4{ font-size:1.1rem; margin-bottom:8px; color:var(--maroon-deep); }
+.dash-card p{ color:#5a1130; font-size:.9rem; line-height:1.55; margin-bottom:16px; }
+.dash-link{ font-size:.86rem; font-weight:600; color:var(--primary); }
+.dash-link:hover{ color:var(--bright); }
+
+.jv-strip{
+  margin-top:56px; padding-top:40px; border-top:1px solid var(--line);
+}
+.jv-strip h4{ font-size:1.1rem; color:var(--maroon-deep); margin-bottom:20px; }
+.jv-list{ display:flex; flex-wrap:wrap; gap:12px; }
+.jv-list span{
+  font-size:.82rem; padding:9px 16px; border-radius:999px; background:var(--paper-2);
+  color:var(--magenta); border:1px solid var(--line);
+}
+
+/* ---------- news ---------- */
+.news-slider-wrap{ position:relative; }
+.news-track{
+  display:flex; gap:22px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:14px;
+  scrollbar-width:none;
+}
+.news-track::-webkit-scrollbar{ display:none; }
+.news-card{
+  flex:0 0 320px; scroll-snap-align:start; background:#fff; border:1px solid var(--line);
+  border-radius:var(--radius); padding:28px 24px;
+  border-top:4px solid var(--primary);
+}
+.news-date{ font-family:var(--font-mono); font-size:.75rem; color:var(--primary); letter-spacing:.06em; }
+.news-card h4{ font-size:1.05rem; margin:12px 0 10px; color:var(--maroon-deep); line-height:1.4; }
+.news-card p{ font-size:.88rem; color:#5a1130; line-height:1.55; }
+.news-dots{ display:flex; gap:8px; justify-content:center; margin-top:22px; }
+.news-dots span{ width:8px; height:8px; border-radius:50%; background:var(--line); transition:background .3s; }
+.news-dots span.active{ background:var(--primary); }
+
+/* ---------- careers ---------- */
+.careers-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch; }
+.careers-points{ margin:30px 0 34px; display:flex; flex-direction:column; gap:22px; }
+.careers-point h4{ font-size:1.05rem; margin-bottom:6px; color:var(--maroon-deep); }
+.careers-point p{ font-size:.92rem; color:#5a1130; line-height:1.55; }
+.recruit-banner{
+  position:relative; border-radius:var(--radius); overflow:hidden; padding:42px 34px;
+  color:#fff; display:flex; flex-direction:column; justify-content:flex-end; gap:14px; min-height:340px;
+}
+.recruit-photo{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
+  filter:saturate(1.05) contrast(1.02);
+}
+.recruit-scrim{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(150deg, rgba(76,0,40,.55) 0%, rgba(193,0,103,.72) 60%, rgba(255,66,167,.55) 100%);
+}
+.recruit-banner > *:not(.recruit-photo):not(.recruit-scrim){ position:relative; z-index:2; }
+.recruit-credit{
+  position:relative; z-index:2; font-family:var(--font-mono); font-size:.68rem; opacity:.75; margin-top:-6px;
+}
+.recruit-pulse{
+  position:absolute; top:-40px; right:-40px; width:180px; height:180px; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,.25), transparent 70%); animation:pulseGlow 3s ease-in-out infinite;
+}
+@keyframes pulseGlow{ 0%,100%{ transform:scale(1); opacity:.7;} 50%{ transform:scale(1.15); opacity:1;} }
+.recruit-tag{
+  font-family:var(--font-mono); font-size:.75rem; letter-spacing:.14em; text-transform:uppercase;
+  background:rgba(255,255,255,.16); padding:6px 14px; border-radius:999px; width:fit-content;
+}
+.recruit-banner h3{ color:#fff; font-size:1.7rem; line-height:1.3; }
+.mascot-note{
+  display:flex; align-items:center; gap:12px; background:rgba(255,255,255,.12);
+  border-radius:var(--radius-sm); padding:14px 16px; font-size:.88rem; margin-top:6px;
+}
+.mascot-emoji{ font-size:1.6rem; }
+
+/* ---------- quick apps ---------- */
+.quick-apps{ background:var(--paper-2); padding-top:90px; }
+.apps-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+.app-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm);
+  padding:28px 16px; display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center;
+  font-size:.88rem; color:var(--maroon-deep); font-weight:600;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.app-card:hover{ transform:translateY(-5px); box-shadow:0 18px 34px -20px rgba(142,0,76,.4); }
+.app-icon{ font-size:1.6rem; }
+.app-card em{ font-style:normal; font-weight:400; font-size:.72rem; color:var(--magenta); display:block; }
+
+/* ---------- contact ---------- */
+.contact{ background:#fff; }
+.contact-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:50px; }
+.contact-detail{
+  display:flex; flex-direction:column; gap:4px; padding:16px 0; border-bottom:1px solid var(--line);
+}
+.contact-label{
+  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--primary);
+}
+.social-row{ display:flex; gap:12px; margin-top:26px; }
+.social-row a{
+  width:38px; height:38px; border-radius:50%; border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center; font-size:.85rem; color:var(--maroon-deep);
+  transition:background .25s, color .25s;
+}
+.social-row a:hover{ background:var(--primary); color:#fff; border-color:var(--primary); }
+
+.form-row{ display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
+.form-row label{ font-size:.82rem; font-weight:600; color:var(--maroon-deep); }
+.form-row input, .form-row textarea{
+  border:1px solid var(--line); border-radius:var(--radius-sm); padding:12px 14px;
+  font-family:var(--font-body); font-size:.95rem; background:var(--paper); color:var(--ink);
+  transition:border-color .25s, box-shadow .25s;
+}
+.form-row input:focus, .form-row textarea:focus{
+  outline:none; border-color:var(--primary); box-shadow:0 0 0 3px rgba(193,0,103,.15);
+}
+.form-submit{ width:100%; border:none; margin-top:6px; }
+.form-status{ font-size:.85rem; color:var(--primary); margin-top:12px; min-height:1.2em; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{ background:var(--ground); color:#f2dbe6; padding:80px 0 0; }
+.footer-grid{
+  display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; padding-bottom:56px;
+  border-bottom:1px solid var(--line-light);
+}
+.footer-brand p{ color:#d8a9c0; font-size:.9rem; margin-top:14px; line-height:1.5; }
+.footer-updated{ font-family:var(--font-mono); font-size:.72rem; margin-top:16px; color:var(--tint-1); }
+.footer-col h5{
+  font-family:var(--font-mono); font-size:.75rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--tint-1); margin-bottom:18px; font-weight:500;
+}
+.footer-col a{ display:block; padding:6px 0; font-size:.9rem; color:#f2dbe6; transition:color .25s, transform .25s; }
+.footer-col a:hover{ color:var(--tint-2); transform:translateX(3px); }
+.footer-bottom{
+  display:flex; align-items:center; justify-content:space-between; padding:26px 32px; flex-wrap:wrap; gap:16px;
+}
+.footer-bottom p{ font-size:.82rem; color:#d8a9c0; }
+.social-icons{ display:flex; gap:12px; }
+.social-icons a{
+  width:34px; height:34px; border-radius:50%; border:1px solid var(--line-light);
+  display:flex; align-items:center; justify-content:center; font-size:.78rem;
+  transition:background .25s;
+}
+.social-icons a:hover{ background:var(--primary); }
+
+/* ============================================================
+   DETAIL PAGE VIEW (SPA-style routed sub-pages)
+   ============================================================ */
+.page-main{ background:var(--paper); }
+.page-hero{
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,102,183,.16) 0%, transparent 55%),
+    linear-gradient(160deg,var(--ground) 0%,var(--maroon-deep) 100%);
+  padding-top:1px; position:relative; overflow:hidden;
+}
+.page-hero::before{
+  content:''; position:absolute; inset:0; pointer-events:none; opacity:.55;
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(255,255,255,.05) 0px, rgba(255,255,255,.05) 2px,
+      transparent 2px, transparent 110px);
+  mask-image:linear-gradient(180deg, rgba(0,0,0,.9) 0%, transparent 85%);
+  animation:beamShift 9s linear infinite;
+}
+@keyframes beamShift{ 0%{ background-position-x:0; } 100%{ background-position-x:440px; } }
+.page-hero-inner{ padding:150px 32px 70px; color:#fff; position:relative; z-index:2; }
+.hero-platform{
+  position:absolute; left:50%; bottom:-60px; transform:translateX(-50%);
+  width:min(90%,720px); height:120px; border-radius:50%;
+  background:radial-gradient(ellipse at 50% 40%, rgba(255,102,183,.35), rgba(16,42,99,.05) 70%, transparent 75%);
+  filter:blur(2px); pointer-events:none; z-index:1;
+}
+.back-btn{
+  background:linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.06));
+  border:1px solid var(--line-light); color:#fff;
+  padding:9px 18px; border-radius:999px; font-size:.85rem; margin-bottom:24px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 6px 16px -6px rgba(0,0,0,.5);
+  transition:background .25s var(--ease), transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.back-btn:hover{
+  background:linear-gradient(180deg, rgba(255,255,255,.3), rgba(255,255,255,.1));
+  transform:translateX(-3px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45), 0 8px 20px -6px rgba(0,0,0,.55);
+}
+.page-breadcrumb{
+  font-family:var(--font-mono); font-size:.78rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--tint-1); margin-bottom:14px;
+}
+.page-title{
+  color:#fff; font-family:var(--font-body); font-weight:700; text-transform:uppercase;
+  letter-spacing:.02em; font-size:clamp(1.9rem,4vw,3rem); line-height:1.15; max-width:800px;
+  text-shadow:0 0 30px rgba(255,102,183,.45), 0 2px 0 rgba(0,0,0,.3);
+}
+
+.page-body-section{ padding-top:70px; }
+.page-body-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start; }
+.page-media img{ width:100%; border-radius:var(--radius); box-shadow:0 20px 50px -28px rgba(76,0,40,.4); }
+.page-media iframe{
+  width:100%; aspect-ratio:16/9; border:none; border-radius:var(--radius);
+  box-shadow:0 20px 50px -28px rgba(76,0,40,.4);
+}
+.video-card{
+  position:relative; width:100%; aspect-ratio:16/9; border-radius:var(--radius);
+  overflow:hidden; box-shadow:0 24px 60px -22px rgba(76,0,40,.55); background:var(--ground);
+  transform-style:preserve-3d; perspective:900px; will-change:transform;
+  transition:transform .35s cubic-bezier(.16,.8,.24,1), box-shadow .35s var(--ease);
+}
+.video-card:hover{ box-shadow:0 32px 70px -18px rgba(76,0,40,.65); }
+.video-card img.video-poster{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transform:scale(1.04); transition:transform .5s var(--ease), filter .4s var(--ease);
+  filter:saturate(1.08) contrast(1.03);
+}
+.video-card:hover img.video-poster{ transform:scale(1.1); }
+.video-sheen{
+  position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(125deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 32%, rgba(0,0,0,0) 68%, rgba(0,0,0,.35) 100%);
+  mix-blend-mode:overlay;
+}
+.video-play{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:74px; height:74px; border-radius:50%; border:none; cursor:pointer;
+  background:rgba(193,0,103,.92); color:#fff; font-size:1.4rem;
+  display:flex; align-items:center; justify-content:center; padding-left:6px;
+  box-shadow:0 10px 30px -6px rgba(0,0,0,.5);
+  transition:transform .25s var(--ease), background .25s var(--ease);
+}
+.video-play:hover{ transform:translate(-50%,-50%) scale(1.08); background:var(--bright); }
+.video-fallback{
+  display:inline-block; margin-top:14px; font-size:.88rem; font-weight:600; color:var(--primary);
+}
+.video-fallback:hover{ color:var(--bright); }
+.photo-tilt{
+  position:relative; width:100%; border-radius:var(--radius); overflow:hidden;
+  box-shadow:0 24px 60px -22px rgba(76,0,40,.55);
+  transform-style:preserve-3d; perspective:900px; will-change:transform;
+  transition:transform .35s cubic-bezier(.16,.8,.24,1), box-shadow .35s var(--ease);
+}
+.photo-tilt:hover{ box-shadow:0 32px 70px -18px rgba(76,0,40,.65); }
+.photo-tilt img{
+  width:100%; display:block; transform:scale(1.02);
+  transition:transform .5s var(--ease); filter:saturate(1.06) contrast(1.02);
+}
+.photo-tilt:hover img{ transform:scale(1.06); }
+.photo-credit{
+  font-family:var(--font-mono); font-size:.72rem; color:var(--body-text); opacity:.7;
+  margin-top:10px;
+}
+.page-text p{
+  color:var(--body-text); font-size:1.02rem; line-height:1.75; margin-bottom:18px;
+}
+.page-cta{ display:flex; gap:16px; flex-wrap:wrap; margin-top:50px; padding-top:40px; border-top:1px solid var(--line); }
+.page-cta .btn-primary{
+  background:linear-gradient(180deg, var(--bright) 0%, var(--primary) 55%, var(--rose) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 14px 28px -10px rgba(193,0,103,.6);
+}
+.page-cta .btn-primary:hover{ box-shadow:inset 0 1px 0 rgba(255,255,255,.6), 0 18px 34px -10px rgba(255,30,150,.6); }
+.page-cta .btn-ghost{
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+  border-color:var(--line);
+  color:var(--maroon-deep);
+}
+html[data-theme="dark"] .page-cta .btn-ghost{ color:var(--ink); border-color:var(--line-light); }
+html[data-theme="dark"] .page-text p{ color:var(--body-text); }
+
+@media (max-width:900px){
+  .page-body-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:760px){
+  .page-hero-inner{ padding:130px 20px 40px; }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1024px){
+  .core-grid, .tilt-grid, .glow-grid, .values-grid, .sustain-grid, .dash-grid, .apps-grid{ grid-template-columns:repeat(2,1fr); }
+  .vm-grid, .careers-grid, .contact-grid{ grid-template-columns:1fr; }
+  .stat-band-grid{ grid-template-columns:repeat(2,1fr); }
+  .stat-block:nth-child(2){ border-right:none; }
+  .stat-block{ border-bottom:1px solid var(--line-light); }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:760px){
+  .container{ padding:0 20px; }
+  .utility-tag{ display:none; }
+  .utility-right a:not(.lang-toggle){ display:none; }
+  .nav-links{ display:none; }
+  .nav-toggle{ display:flex; }
+  .mobile-menu{ display:none; }
+  .hero-content{ padding:180px 20px 90px; }
+  .section{ padding:76px 0; }
+  .core-grid, .tilt-grid, .glow-grid, .values-grid, .sustain-grid, .dash-grid, .apps-grid{ grid-template-columns:1fr; }
+  .stat-band-grid{ grid-template-columns:1fr 1fr; }
+  .footer-grid{ grid-template-columns:1fr; }
+  .footer-bottom{ justify-content:center; text-align:center; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div class="loader" id="loader">
+  <div class="loader-seam"></div>
+  <div class="loader-text">
+    <span class="loader-label">NLC INDIA LIMITED</span>
+    <span class="loader-sub">seam · strata · current</span>
+  </div>
+</div>
+
+<div class="grain"></div>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="utility-inner">
+    <div class="utility-left">
+      <span class="utility-tag">Navratna · Government of India Enterprise</span>
+    </div>
+    <div class="utility-right">
+      <a href="#">BSE</a>
+      <a href="#">NSE</a>
+      <a href="#">Vigilance</a>
+      <a href="#">RTI</a>
+      <a href="#hero" class="skip-link">Skip to main Content</a>
+      <a href="#" class="lang-toggle">हिन्दी</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">
+        <span class="theme-icon theme-icon-sun">☀</span>
+        <span class="theme-icon theme-icon-moon">☾</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="brand" id="brandHome">
+      <svg class="brand-badge" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NLC India Limited emblem">
+  <circle cx="50" cy="50" r="47" fill="#ffffff" stroke="#0b1f4d" stroke-width="4"/>
+  <circle cx="50" cy="50" r="40" fill="none" stroke="#0b1f4d" stroke-width="1.2"/>
+  <g fill="#0b1f4d">
+    <circle cx="50" cy="26" r="3.4"/>
+    <circle cx="43" cy="36" r="3.4"/>
+    <circle cx="57" cy="36" r="3.4"/>
+    <circle cx="36" cy="46" r="3.4"/>
+    <circle cx="50" cy="46" r="3.4"/>
+    <circle cx="64" cy="46" r="3.4"/>
+  </g>
+  <path d="M22 46 L50 20 L78 46 Z" fill="none" stroke="#c1741f" stroke-width="2"/>
+  <text x="50" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="13" fill="#0b1f4d">NLC</text>
+  <text x="50" y="77" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="7.5" fill="#c1741f" letter-spacing="0.5">INDIA</text>
+  <path id="tagArc" d="M14 62 A 40 40 0 0 0 86 62" fill="none"/>
+  <text font-family="Arial, sans-serif" font-size="5.6" fill="#0b1f4d" letter-spacing=".3">
+    <textPath href="#tagArc" startOffset="50%" text-anchor="middle">CREATING WEALTH FOR WELLBEING</textPath>
+  </text>
+</svg>
+      <span class="brand-text">
+        <span class="brand-full">NLC India Limited</span>
+        <span class="brand-tag">'Navratna' – Government of India Enterprise</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <div class="nav-item has-dropdown">
+        <a href="#about">Overview <span class="caret">⌄</span></a>
+        <div class="dropdown">
+          <div class="dropdown-item has-submenu">
+            <a href="#about">About Us <span class="sub-caret">›</span></a>
+            <div class="submenu">
+              <a href="#about" data-page="vision-mission">Vision, Mission &amp; Core Values</a>
+              <a href="#about" data-page="about-nlcil">About NLCIL</a>
+              <a href="#about" data-page="nlcil-history">NLCIL History</a>
+              <a href="#about" data-page="our-journey">Our Journey</a>
+              <a href="#about" data-page="nlcil-projects">NLCIL Projects</a>
+            </div>
+          </div>
+          <a href="#about" data-page="board-of-directors">Board of Directors</a>
+          <a href="#about" data-page="general-information">General Information</a>
+          <a href="#about" data-page="performance">Performance</a>
+          <a href="#about" data-page="corporate-profile">Corporate Profile</a>
+          <a href="#about" data-page="roll-of-honour">Roll of Honour</a>
+          <a href="#about" data-page="new-initiatives">New Initiatives</a>
+          <a href="#about" data-page="human-resource">Human Resource</a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown">
+        <a href="#investors">Investors <span class="caret">⌄</span></a>
+        <div class="dropdown">
+          <div class="dropdown-item has-submenu">
+            <a href="#investors" data-page="annual-reports">Annual Reports <span class="sub-caret">›</span></a>
+            <div class="submenu">
+              <a href="#investors" data-page="annual-report-2526">2025 – 26</a>
+              <a href="#investors" data-page="annual-report-2425">2024 – 25</a>
+              <a href="#investors" data-page="annual-report-2324">2023 – 24</a>
+              <a href="#investors" data-page="annual-report-archive">Full Archive</a>
+            </div>
+          </div>
+          <a href="#investors" data-page="financial-performance">Financial Performance</a>
+          <a href="#investors" data-page="corporate-governance">Corporate Governance</a>
+          <a href="#investors" data-page="stock-information">Stock Information</a>
+          <a href="#investors" data-page="shareholding-pattern">Shareholding Pattern</a>
+          <a href="#investors" data-page="dividend-history">Dividend History</a>
+          <a href="#investors" data-page="investor-grievances">Investor Grievances</a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown">
+        <a href="#careers">Career <span class="caret">⌄</span></a>
+        <div class="dropdown">
+          <a href="#careers" data-page="current-openings">Current Openings</a>
+          <a href="#careers" data-page="why-join-nlc">Why Join NLC</a>
+          <a href="#careers" data-page="employee-corner">Employee Corner</a>
+          <a href="#careers" data-page="care-portal">CARE Portal (Ex-employee)</a>
+          <a href="#careers" data-page="apprenticeship">Apprenticeship</a>
+          <a href="#careers" data-page="hr-policy">Human Resource Policy</a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown">
+        <a href="#sustainability">Sustainability <span class="caret">⌄</span></a>
+        <div class="dropdown">
+          <a href="#sustainability" data-page="environmental-protection">Environmental Protection</a>
+          <a href="#sustainability" data-page="afforestation">Afforestation Programs</a>
+          <a href="#sustainability" data-page="carbon-reduction">Carbon Reduction</a>
+          <a href="#sustainability" data-page="csr-initiatives">CSR Initiatives</a>
+          <div class="dropdown-item has-submenu">
+            <a href="#sustainability" data-page="esg-reports">ESG Reports <span class="sub-caret">›</span></a>
+            <div class="submenu">
+              <a href="#sustainability" data-page="environmental-disclosures">Environmental Disclosures</a>
+              <a href="#sustainability" data-page="social-impact">Social Impact</a>
+              <a href="#sustainability" data-page="governance-ratings">Governance Ratings</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown">
+        <a href="#news">Media <span class="caret">⌄</span></a>
+        <div class="dropdown">
+          <a href="#news" data-page="latest-news">Latest News</a>
+          <a href="#news" data-page="press-releases">Press Releases</a>
+          <a href="#news" data-page="event-diary">Event Diary</a>
+          <div class="dropdown-item has-submenu">
+            <a href="#news" data-page="photo-gallery">Photo Gallery <span class="sub-caret">›</span></a>
+            <div class="submenu">
+              <a href="#news" data-page="gallery-events">Events</a>
+              <a href="#news" data-page="gallery-projects">Projects</a>
+              <a href="#news" data-page="gallery-csr">CSR Activities</a>
+            </div>
+          </div>
+          <a href="#news" data-page="video-gallery">Video Gallery</a>
+        </div>
+      </div>
+      <a href="#contact" class="nav-cta">Tenders</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">Overview</a>
+  <a href="#segments">Business</a>
+  <a href="#sustainability">Sustainability</a>
+  <a href="#renewables">Renewables</a>
+  <a href="#values">Values</a>
+  <a href="#timeline">Journey</a>
+  <a href="#investors">Investors</a>
+  <a href="#news">Media</a>
+  <a href="#careers">Career</a>
+  <a href="#contact">Tenders / Contact</a>
+</div>
+
+<main id="homeMain">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-strata" aria-hidden="true">
+    <div class="stratum s1"></div>
+    <div class="stratum s2"></div>
+    <div class="stratum s3"></div>
+    <div class="stratum s4"></div>
+    <div class="stratum s5"></div>
+  </div>
+  <canvas id="emberCanvas" aria-hidden="true"></canvas>
+  <img class="hero-photo" src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=1800&q=80" alt="Thermal power station cooling towers at dusk">
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal-up">70 Years of Energizing the Nation · Est. 1956</p>
+    <h1 class="hero-title">
+      <span class="reveal-up" style="--d:0">NLC</span>
+      <span class="reveal-up" style="--d:1">India</span>
+      <span class="reveal-up hero-title-accent" style="--d:2">Limited</span>
+    </h1>
+    <p class="hero-subtitle reveal-up" style="--d:3">Energizing the Nation with Sustainability</p>
+    <p class="hero-desc reveal-up" style="--d:4">Seven decades beneath the earth of Neyveli — mining lignite, firing turbines, and now building the seams of solar and wind that carry India forward.</p>
+    <div class="hero-cta reveal-up" style="--d:5">
+      <a href="#segments" class="btn btn-primary"><span>Explore Our Business</span></a>
+      <a href="#investors" class="btn btn-ghost"><span>Investor Relations</span></a>
+    </div>
+  </div>
+  <div class="scroll-cue"><span></span></div>
+</section>
+
+<!-- STAT STRIP (mirrors nlcindia.in home ribbon) -->
+<section class="stat-band">
+  <div class="container stat-band-grid">
+    <div class="stat-block">
+      <span class="stat-num" data-count="8405.26" data-decimals="2">0</span>
+      <span class="stat-label">Power Generation Capacity (MW)</span>
+    </div>
+    <div class="stat-block">
+      <span class="stat-num" data-count="59.10" data-decimals="2">0</span>
+      <span class="stat-label">Mining Capacity (MTPA)</span>
+    </div>
+    <div class="stat-block">
+      <span class="stat-num" data-count="20130" data-suffix="">0</span>
+      <span class="stat-label">Planned Capacity by 2030 (MW)</span>
+    </div>
+    <div class="stat-block">
+      <span class="stat-num" data-count="9483">0</span>
+      <span class="stat-label">Employee Strength</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Who we are</p>
+      <h2>Ground truth, since before the grid.</h2>
+      <p class="section-lede">NLC India Limited is a Navratna Government of India Enterprise headquartered in Neyveli, Tamil Nadu — a mining and power generation company that has spent nearly seven decades pulling lignite from the earth and turning it into the current that runs a nation. Today that same discipline is being pointed at the sun and the wind, with a firm roadmap toward gigawatt-scale green energy.</p>
+    </div>
+
+    <div class="core-grid reveal">
+      <div class="core-card">
+        <span class="core-index">01</span>
+        <h3>Mining</h3>
+        <p>Open-cast lignite operations across multiple mines in Neyveli and Barsingsar, engineered for efficient, responsible extraction at national scale.</p>
+      </div>
+      <div class="core-card">
+        <h3>Power Generation</h3>
+        <span class="core-index">02</span>
+        <p>A fleet of thermal power stations converting mined lignite into dependable grid-scale electricity for southern and northern India.</p>
+      </div>
+      <div class="core-card">
+        <span class="core-index">03</span>
+        <h3>Renewable Expansion</h3>
+        <p>Gigawatt-scale solar capacity and a growing wind portfolio across Rajasthan, Tamil Nadu, Odisha and Assam — built for the decades after coal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS SEGMENTS -->
+<section class="section segments" id="segments">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">What we run</p>
+      <h2>Four seams of business.</h2>
+    </div>
+    <div class="tilt-grid">
+      <div class="tilt-card" data-tilt>
+        <img class="tilt-img" src="https://images.unsplash.com/photo-1523848309072-c199db53f137?auto=format&fit=crop&w=900&q=80" alt="Open cast lignite mining machinery">
+        <div class="tilt-inner">
+          <span class="tilt-index">A</span>
+          <h3>Lignite Mining</h3>
+          <p>Open cast mining operations engineered for efficient resource extraction at national scale.</p>
+        </div>
+      </div>
+      <div class="tilt-card" data-tilt>
+        <img class="tilt-img" src="https://images.unsplash.com/photo-1759109391463-9ed28f142b5f?auto=format&fit=crop&w=900&q=80" alt="Thermal power station">
+        <div class="tilt-inner">
+          <span class="tilt-index">B</span>
+          <h3>Thermal Power Generation</h3>
+          <p>Reliable power production from a large, well-maintained generation capacity feeding the national grid.</p>
+        </div>
+      </div>
+      <div class="tilt-card" data-tilt>
+        <img class="tilt-img" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80" alt="Utility scale solar park">
+        <div class="tilt-inner">
+          <span class="tilt-index">C</span>
+          <h3>Renewable Energy</h3>
+          <p>Solar energy, wind energy, and green energy initiatives scaling year over year.</p>
+        </div>
+      </div>
+      <div class="tilt-card" data-tilt>
+        <img class="tilt-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80" alt="Engineers in a control room">
+        <div class="tilt-inner">
+          <span class="tilt-index">D</span>
+          <h3>Consultancy Services</h3>
+          <p>Mining consultancy and power sector consultancy drawing on seven decades of field experience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY -->
+<section class="section sustainability" id="sustainability">
+  <div class="container">
+    <div class="section-head reveal light">
+      <p class="eyebrow">Beyond the seam</p>
+      <h2>What we owe the ground back.</h2>
+    </div>
+    <div class="sustain-grid reveal">
+      <div class="ring-card">
+        <svg class="ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52" data-pct="82"/></svg>
+        <h4>Green Energy Expansion</h4>
+      </div>
+      <div class="ring-card">
+        <svg class="ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52" data-pct="65"/></svg>
+        <h4>Afforestation Programs</h4>
+      </div>
+      <div class="ring-card">
+        <svg class="ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52" data-pct="74"/></svg>
+        <h4>Environmental Protection</h4>
+      </div>
+      <div class="ring-card">
+        <svg class="ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52" data-pct="58"/></svg>
+        <h4>Carbon Reduction</h4>
+      </div>
+      <div class="ring-card">
+        <svg class="ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52" data-pct="90"/></svg>
+        <h4>ESG Commitment</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RENEWABLES -->
+<section class="section renewables" id="renewables">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Where we're headed</p>
+      <h2>The next current.</h2>
+    </div>
+    <div class="glow-grid">
+      <div class="glow-card reveal">
+        <div class="glow-icon">☀</div>
+        <h3>Solar Projects</h3>
+        <p>Utility-scale solar parks contributing to our growing gigawatt-class capacity.</p>
+      </div>
+      <div class="glow-card reveal">
+        <div class="glow-icon">✦</div>
+        <h3>Wind Projects</h3>
+        <p>Wind generation assets diversifying our renewable portfolio across regions.</p>
+      </div>
+      <div class="glow-card reveal">
+        <div class="glow-icon">⚡</div>
+        <h3>Battery Storage</h3>
+        <p>Grid-scale storage systems built to smooth supply and stabilise renewable output.</p>
+      </div>
+      <div class="glow-card reveal">
+        <div class="glow-icon">◈</div>
+        <h3>Green Hydrogen</h3>
+        <p>Future-facing green hydrogen initiatives under active study and pilot development.</p>
+      </div>
+    </div>
+    <div class="renewables-photo reveal">
+      <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80" alt="Wind turbines on the horizon at sunset">
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section values" id="values">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">What NLC stands for</p>
+      <h2>N L C I L &nbsp; C O M M I T S.</h2>
+    </div>
+    <div class="values-grid reveal">
+      <div class="value-cell"><span class="value-letter">N</span><span class="value-word">National Orientation</span></div>
+      <div class="value-cell"><span class="value-letter">L</span><span class="value-word">Learning &amp; Development</span></div>
+      <div class="value-cell"><span class="value-letter">C</span><span class="value-word">Commitment to Excellence</span></div>
+      <div class="value-cell"><span class="value-letter">I</span><span class="value-word">Innovation &amp; Creativity</span></div>
+      <div class="value-cell"><span class="value-letter">L</span><span class="value-word">Loyalty &amp; Leadership</span></div>
+      <div class="value-cell"><span class="value-letter">C</span><span class="value-word">Customer Focus</span></div>
+      <div class="value-cell"><span class="value-letter">O</span><span class="value-word">Organisational Pride</span></div>
+      <div class="value-cell"><span class="value-letter">M</span><span class="value-word">Mutual Trust</span></div>
+      <div class="value-cell"><span class="value-letter">M</span><span class="value-word">Motivation</span></div>
+      <div class="value-cell"><span class="value-letter">I</span><span class="value-word">Integrity</span></div>
+      <div class="value-cell"><span class="value-letter">T</span><span class="value-word">Total Quality</span></div>
+      <div class="value-cell"><span class="value-letter">S</span><span class="value-word">Safety &amp; Sustainability</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section timeline-section" id="timeline">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Seven decades, laid bare</p>
+      <h2>The strata of our journey.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <span class="timeline-year">1956</span>
+        <h4>Foundation</h4>
+        <p>NLC is established to mine lignite in Neyveli, Tamil Nadu.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <span class="timeline-year">1960s–80s</span>
+        <h4>Expansion of Mining Operations</h4>
+        <p>Multiple open-cast mines commissioned to scale lignite output.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <span class="timeline-year">1980s–2000s</span>
+        <h4>Thermal Power Growth</h4>
+        <p>A growing fleet of thermal power stations built to convert lignite into grid electricity.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <span class="timeline-year">2010s</span>
+        <h4>Renewable Energy Milestones</h4>
+        <p>First solar and wind assets commissioned, marking a strategic diversification.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <span class="timeline-year">2020s</span>
+        <h4>Solar Capacity Achievement</h4>
+        <p>Gigawatt-scale solar capacity reached across multiple sites; 70 years of the enterprise celebrated.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <span class="timeline-year">Ahead</span>
+        <h4>Future Green Energy Vision</h4>
+        <p>Battery storage, green hydrogen, and continued renewable scale-up toward 20,130 MW by 2030.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTORS -->
+<section class="section investors" id="investors">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">For our shareholders</p>
+      <h2>Investor relations.</h2>
+    </div>
+    <div class="dash-grid reveal">
+      <div class="dash-card">
+        <span class="dash-icon">▤</span>
+        <h4>Annual Reports</h4>
+        <p>Full-year performance and disclosures, archived by year.</p>
+        <a href="#" class="dash-link">View archive →</a>
+      </div>
+      <div class="dash-card">
+        <span class="dash-icon">▲</span>
+        <h4>Financial Performance</h4>
+        <p>Quarterly results, revenue trends and segment-wise breakdowns.</p>
+        <a href="#" class="dash-link">View results →</a>
+      </div>
+      <div class="dash-card">
+        <span class="dash-icon">◆</span>
+        <h4>Corporate Governance</h4>
+        <p>Board composition, policies and committee charters.</p>
+        <a href="#" class="dash-link">Read policies →</a>
+      </div>
+      <div class="dash-card">
+        <span class="dash-icon">●</span>
+        <h4>Stock Information</h4>
+        <p>Share price data (BSE / NSE), shareholding pattern and dividend history.</p>
+        <a href="#" class="dash-link">View stock data →</a>
+      </div>
+      <div class="dash-card">
+        <span class="dash-icon">✦</span>
+        <h4>Sustainability Reports</h4>
+        <p>ESG disclosures and environmental performance summaries.</p>
+        <a href="#" class="dash-link">View reports →</a>
+      </div>
+    </div>
+
+    <!-- Subsidiaries / JV -->
+    <div class="jv-strip reveal">
+      <h4>Our Joint Ventures / Subsidiaries</h4>
+      <div class="jv-list">
+        <span>NLC Tamilnadu Power Limited</span>
+        <span>Neyveli Uttar Pradesh Power Limited</span>
+        <span>Coal Lignite Urja Vikas Private Limited (CLUVPL)</span>
+        <span>MNH Shakti Limited</span>
+        <span>NLC India Green Energy Limited</span>
+        <span>NLC India Renewables Limited</span>
+        <span>NIRL Assam Renewables Limited</span>
+        <span>NIRL Rajasthan Renewables Limited</span>
+        <span>NLC Rajasthan Power Limited</span>
+        <span>NIRL NCRTC Renewables Limited</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="section news" id="news">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Latest</p>
+      <h2>News &amp; updates.</h2>
+    </div>
+    <div class="news-slider-wrap reveal">
+      <div class="news-track" id="newsTrack">
+        <div class="news-card">
+          <span class="news-date">24 Jun 2026</span>
+          <h4>NLC India Renewables signs JV with OREDA</h4>
+          <p>Joint venture agreement signed with OREDA Ltd. for development of green energy projects in Odisha.</p>
+        </div>
+        <div class="news-card">
+          <span class="news-date">This Quarter</span>
+          <h4>New solar capacity brought online</h4>
+          <p>Fresh utility-scale solar units commissioned as part of the renewable roadmap.</p>
+        </div>
+        <div class="news-card">
+          <span class="news-date">This Quarter</span>
+          <h4>Mining operations post steady output</h4>
+          <p>Open-cast mines continue efficient lignite extraction to feed thermal capacity.</p>
+        </div>
+        <div class="news-card">
+          <span class="news-date">Ongoing</span>
+          <h4>Smart Coal Exchange Platform live</h4>
+          <p>Digital platform for coal producers and consumers enables transparent, competitive price discovery.</p>
+        </div>
+        <div class="news-card">
+          <span class="news-date">Ongoing</span>
+          <h4>Wind portfolio study expands</h4>
+          <p>Feasibility work continues on new wind generation sites across multiple states.</p>
+        </div>
+      </div>
+      <div class="news-dots" id="newsDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<section class="section careers" id="careers">
+  <div class="container careers-grid">
+    <div class="careers-copy reveal">
+      <p class="eyebrow">Join the seam</p>
+      <h2>Why join NLC.</h2>
+      <div class="careers-points">
+        <div class="careers-point">
+          <h4>Innovation Culture</h4>
+          <p>Work across mining, thermal power and renewables under one roof.</p>
+        </div>
+        <div class="careers-point">
+          <h4>Learning Opportunities</h4>
+          <p>Structured training and cross-functional exposure from day one.</p>
+        </div>
+        <div class="careers-point">
+          <h4>Employee Growth</h4>
+          <p>Clear paths from field operations to corporate leadership, across 9,483+ employees.</p>
+        </div>
+      </div>
+      <a href="#contact" class="btn btn-primary"><span>View Openings</span></a>
+    </div>
+    <div class="recruit-banner reveal">
+      <img class="recruit-photo" src="https://coal.nic.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2019-09/nlc-7.jpg" alt="Greenbelt development in an NLC township">
+      <div class="recruit-scrim"></div>
+      <div class="recruit-pulse"></div>
+      <span class="recruit-tag">We're hiring</span>
+      <h3>Build the next seven decades.</h3>
+      <div class="mascot-note">
+        <span class="mascot-emoji" aria-hidden="true">🦁</span>
+        <span>Meet <strong>Neyon</strong> — our official mascot, marking 70 years of energizing the nation.</span>
+      </div>
+      <p class="recruit-credit">Photo: Ministry of Coal, Government of India — NLC township greenbelt</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK APPS -->
+<section class="section quick-apps">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">For employees &amp; partners</p>
+      <h2>Quick apps.</h2>
+    </div>
+    <div class="apps-grid reveal">
+      <a href="#" class="app-card"><span class="app-icon">🛠</span><span>CLMS</span></a>
+      <a href="#" class="app-card"><span class="app-icon">👥</span><span>Employee Corner</span></a>
+      <a href="#" class="app-card"><span class="app-icon">🚪</span><span>CARE Portal <em>(Ex-employee)</em></span></a>
+      <a href="#" class="app-card"><span class="app-icon">🏬</span><span>Vendor Portal</span></a>
+      <a href="#" class="app-card"><span class="app-icon">📋</span><span>PAP Notice Board</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info reveal">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Contact us.</h2>
+      <div class="contact-detail">
+        <span class="contact-label">Company</span>
+        <span>NLC India Limited</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-label">Office</span>
+        <span>Corporate Office, Block-1, Neyveli Township, Cuddalore District, Tamil Nadu – 607801</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-label">Email</span>
+        <span>info@nlcindia.in</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-label">Phone</span>
+        <span>+91-4142-250-100</span>
+      </div>
+      <div class="social-row">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="X / Twitter">X</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <form class="contact-form glass-card reveal" id="contactForm">
+      <div class="form-row">
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-subject">Subject</label>
+        <input type="text" id="cf-subject" name="subject" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary form-submit"><span>Send Message</span></button>
+      <p class="form-status" id="formStatus" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- DETAIL PAGE VIEW (populated by JS router) -->
+<main id="pageMain" class="page-main" hidden>
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <button class="back-btn" id="pageBack" type="button">← Back to Home</button>
+      <p class="page-breadcrumb" id="pageBreadcrumb"></p>
+      <h1 class="page-title" id="pageTitle"></h1>
+    </div>
+    <div class="hero-platform" aria-hidden="true"></div>
+  </section>
+  <section class="section page-body-section">
+    <div class="container">
+      <div class="page-body-grid">
+        <div class="page-media" id="pageMedia"></div>
+        <div class="page-text" id="pageText"></div>
+      </div>
+      <div class="page-cta">
+        <a href="#contact" class="btn btn-primary" id="pageContactLink"><span>Contact Us</span></a>
+        <button class="btn btn-ghost" id="pageBackBottom" type="button">Back to Home</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <svg class="brand-badge" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NLC India Limited emblem">
+  <circle cx="50" cy="50" r="47" fill="#ffffff" stroke="#0b1f4d" stroke-width="4"/>
+  <circle cx="50" cy="50" r="40" fill="none" stroke="#0b1f4d" stroke-width="1.2"/>
+  <g fill="#0b1f4d">
+    <circle cx="50" cy="26" r="3.4"/>
+    <circle cx="43" cy="36" r="3.4"/>
+    <circle cx="57" cy="36" r="3.4"/>
+    <circle cx="36" cy="46" r="3.4"/>
+    <circle cx="50" cy="46" r="3.4"/>
+    <circle cx="64" cy="46" r="3.4"/>
+  </g>
+  <path d="M22 46 L50 20 L78 46 Z" fill="none" stroke="#c1741f" stroke-width="2"/>
+  <text x="50" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="13" fill="#0b1f4d">NLC</text>
+  <text x="50" y="77" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="7.5" fill="#c1741f" letter-spacing="0.5">INDIA</text>
+  <path id="tagArc" d="M14 62 A 40 40 0 0 0 86 62" fill="none"/>
+  <text font-family="Arial, sans-serif" font-size="5.6" fill="#0b1f4d" letter-spacing=".3">
+    <textPath href="#tagArc" startOffset="50%" text-anchor="middle">CREATING WEALTH FOR WELLBEING</textPath>
+  </text>
+</svg>
+      <p>Energizing the Nation with Sustainability.</p>
+      <p class="footer-updated">Designed &amp; Developed by NLCIL · Last updated 17 Jun 2026</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact Us</a>
+      <a href="#">Vendor Payment</a>
+      <a href="#">Vigilance</a>
+      <a href="#">SHe-Box</a>
+      <a href="#">RTI</a>
+      <a href="#">CSR</a>
+    </div>
+    <div class="footer-col">
+      <h5>Business Areas</h5>
+      <a href="#segments">Lignite Mining</a>
+      <a href="#segments">Thermal Power</a>
+      <a href="#renewables">Renewable Energy</a>
+      <a href="#segments">Consultancy</a>
+    </div>
+    <div class="footer-col">
+      <h5>Investors</h5>
+      <a href="#investors">Annual Reports</a>
+      <a href="#investors">Financial Performance</a>
+      <a href="#investors">Governance</a>
+      <a href="#investors">Stock Info</a>
+    </div>
+    <div class="footer-col">
+      <h5>More</h5>
+      <a href="#sustainability">Sustainability</a>
+      <a href="#careers">Careers</a>
+      <a href="#news">Media</a>
+      <a href="#contact">Tenders</a>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>© 2026 NLC India Limited. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#" aria-label="LinkedIn">in</a>
+      <a href="#" aria-label="X / Twitter">X</a>
+      <a href="#" aria-label="YouTube">▶</a>
+      <a href="#" aria-label="Facebook">f</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// NLC INDIA LIMITED — interactions
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ---------- loader ---------- */
+  const loader = document.getElementById('loader');
+  window.addEventListener('load', () => {
+    setTimeout(() => loader.classList.add('hidden'), 500);
+  });
+  setTimeout(() => loader && loader.classList.add('hidden'), 2200); // fallback
+
+  /* ---------- dark / light theme toggle ---------- */
+  const themeToggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  themeToggle && themeToggle.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  });
+
+  /* ---------- nav dropdowns (click-to-toggle, works on touch too) ---------- */
+  const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
+  dropdownItems.forEach(item => {
+    const link = item.querySelector(':scope > a');
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const wasOpen = item.classList.contains('open');
+      dropdownItems.forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-item.has-dropdown')) {
+      dropdownItems.forEach(i => i.classList.remove('open'));
+    }
+  });
+
+  /* ---------- nested flyout submenus (second branch level) ---------- */
+  const submenuItems = document.querySelectorAll('.dropdown-item.has-submenu');
+  submenuItems.forEach(item => {
+    const trigger = item.querySelector(':scope > a');
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const wasOpen = item.classList.contains('open');
+      submenuItems.forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+
+  /* ---------- detail-page router (SPA-style sub-pages) ---------- */
+  const IMG = {"mining": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20600%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%0A%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22%23ff89c8%22/%3E%3Crect%20y%3D%220%22%20width%3D%22800%22%20height%3D%22150%22%20fill%3D%22%23ff66b7%22/%3E%3Crect%20y%3D%22150%22%20width%3D%22800%22%20height%3D%22130%22%20fill%3D%22%23ff42a7%22/%3E%3Crect%20y%3D%22280%22%20width%3D%22800%22%20height%3D%22120%22%20fill%3D%22%23a80059%22/%3E%3Crect%20y%3D%22400%22%20width%3D%22800%22%20height%3D%22200%22%20fill%3D%22%234c0028%22/%3E%0A%3Cg%20fill%3D%22%231a0410%22%20opacity%3D%220.88%22%3E%0A%3Crect%20x%3D%22120%22%20y%3D%22330%22%20width%3D%22230%22%20height%3D%2230%22%20rx%3D%228%22/%3E%3Crect%20x%3D%22150%22%20y%3D%22300%22%20width%3D%2290%22%20height%3D%2240%22%20rx%3D%226%22/%3E%0A%3Ccircle%20cx%3D%22175%22%20cy%3D%22380%22%20r%3D%2230%22/%3E%3Ccircle%20cx%3D%22330%22%20cy%3D%22380%22%20r%3D%2230%22/%3E%0A%3Cpath%20d%3D%22M340%20300%20L430%20250%20L455%20260%20L400%20320%20Z%22/%3E%3Cpath%20d%3D%22M430%20250%20L480%20220%20L495%20232%20L445%20262%20Z%22/%3E%0A%3Crect%20x%3D%22480%22%20y%3D%22200%22%20width%3D%2240%22%20height%3D%2226%22%20rx%3D%224%22/%3E%0A%3C/g%3E%3C/svg%3E", "thermal": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20600%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%0A%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22%23fff6fa%22/%3E%3Crect%20y%3D%220%22%20width%3D%22800%22%20height%3D%22200%22%20fill%3D%22%23ff42a7%22/%3E%0A%3Crect%20y%3D%22200%22%20width%3D%22800%22%20height%3D%22160%22%20fill%3D%22%23a80059%22/%3E%3Crect%20y%3D%22360%22%20width%3D%22800%22%20height%3D%22240%22%20fill%3D%22%234c0028%22/%3E%0A%3Cg%20fill%3D%22%231a0410%22%20opacity%3D%220.88%22%3E%0A%3Cpath%20d%3D%22M230%20470%20C210%20380%20210%20300%20260%20240%20C310%20300%20310%20380%20290%20470%20Z%22/%3E%0A%3Cpath%20d%3D%22M370%20470%20C350%20360%20350%20270%20410%20200%20C470%20270%20470%20360%20450%20470%20Z%22/%3E%0A%3Crect%20x%3D%22520%22%20y%3D%22230%22%20width%3D%2226%22%20height%3D%22240%22/%3E%3Crect%20x%3D%22510%22%20y%3D%22215%22%20width%3D%2246%22%20height%3D%2220%22%20rx%3D%224%22/%3E%0A%3C/g%3E%3C/svg%3E", "solar": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20600%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%0A%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22%23ff89c8%22/%3E%3Crect%20y%3D%220%22%20width%3D%22800%22%20height%3D%22150%22%20fill%3D%22%23fff6fa%22/%3E%3Crect%20y%3D%22150%22%20width%3D%22800%22%20height%3D%22130%22%20fill%3D%22%23ff66b7%22/%3E%3Crect%20y%3D%22280%22%20width%3D%22800%22%20height%3D%22120%22%20fill%3D%22%23a80059%22/%3E%3Crect%20y%3D%22400%22%20width%3D%22800%22%20height%3D%22200%22%20fill%3D%22%234c0028%22/%3E%0A%3Ccircle%20cx%3D%22640%22%20cy%3D%22120%22%20r%3D%2260%22%20fill%3D%22%23c10067%22%20opacity%3D%220.9%22/%3E%0A%3Cg%20fill%3D%22%231a0410%22%20opacity%3D%220.85%22%3E%0A%3Cg%20transform%3D%22translate%28120%2C380%29%20skewX%28-18%29%22%3E%3Crect%20width%3D%22140%22%20height%3D%2218%22/%3E%3Crect%20y%3D%2226%22%20width%3D%22140%22%20height%3D%2218%22/%3E%3Crect%20y%3D%2252%22%20width%3D%22140%22%20height%3D%2218%22/%3E%3C/g%3E%0A%3Cg%20transform%3D%22translate%28300%2C410%29%20skewX%28-18%29%22%3E%3Crect%20width%3D%22140%22%20height%3D%2218%22/%3E%3Crect%20y%3D%2226%22%20width%3D%22140%22%20height%3D%2218%22/%3E%3Crect%20y%3D%2252%22%20width%3D%22140%22%20height%3D%2218%22/%3E%3C/g%3E%0A%3Cg%20transform%3D%22translate%28480%2C440%29%20skewX%28-18%29%22%3E%3Crect%20width%3D%22140%22%20height%3D%2218%22/%3E%3Crect%20y%3D%2226%22%20width%3D%22140%22%20height%3D%2218%22/%3E%3Crect%20y%3D%2252%22%20width%3D%22140%22%20height%3D%2218%22/%3E%3C/g%3E%0A%3C/g%3E%3C/svg%3E", "consult": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20600%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%0A%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22%23ffeaf3%22/%3E%3Crect%20y%3D%220%22%20width%3D%22800%22%20height%3D%22150%22%20fill%3D%22%23ff89c8%22/%3E%3Crect%20y%3D%22150%22%20width%3D%22800%22%20height%3D%22130%22%20fill%3D%22%23fff6fa%22/%3E%3Crect%20y%3D%22280%22%20width%3D%22800%22%20height%3D%22120%22%20fill%3D%22%23ff42a7%22/%3E%3Crect%20y%3D%22400%22%20width%3D%22800%22%20height%3D%22200%22%20fill%3D%22%234c0028%22/%3E%0A%3Crect%20x%3D%22200%22%20y%3D%22160%22%20width%3D%22400%22%20height%3D%22240%22%20rx%3D%2214%22%20fill%3D%22%231a0410%22%20opacity%3D%220.92%22/%3E%0A%3Crect%20x%3D%22222%22%20y%3D%22182%22%20width%3D%22356%22%20height%3D%22170%22%20rx%3D%226%22%20fill%3D%22%23ff89c8%22%20opacity%3D%220.92%22/%3E%0A%3Crect%20x%3D%22240%22%20y%3D%22200%22%20width%3D%2290%22%20height%3D%2210%22%20fill%3D%22%23c10067%22/%3E%3Crect%20x%3D%22240%22%20y%3D%22220%22%20width%3D%22140%22%20height%3D%2210%22%20fill%3D%22%23c10067%22%20opacity%3D%220.6%22/%3E%0A%3Cpolyline%20points%3D%22240%2C320%20290%2C270%20330%2C300%20380%2C240%20430%2C290%20480%2C255%20530%2C300%22%20fill%3D%22none%22%20stroke%3D%22%23ff66b7%22%20stroke-width%3D%226%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%0A%3C/svg%3E", "finance": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20600%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%0A%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22%231a0410%22/%3E%3Crect%20width%3D%22800%22%20height%3D%228%22%20fill%3D%22%23c10067%22/%3E%3Crect%20y%3D%22592%22%20width%3D%22800%22%20height%3D%228%22%20fill%3D%22%23ff66b7%22/%3E%0A%3Ctext%20x%3D%2260%22%20y%3D%22160%22%20font-family%3D%22monospace%22%20font-size%3D%2246%22%20fill%3D%22%23ff66b7%22%20opacity%3D%220.95%22%3EBSE%20%3A%20NSE%3C/text%3E%0A%3Ctext%20x%3D%2260%22%20y%3D%22210%22%20font-family%3D%22monospace%22%20font-size%3D%2228%22%20fill%3D%22%23ff89c8%22%20opacity%3D%220.9%22%3ENLCINDIA%3C/text%3E%0A%3Cg%20stroke%3D%22%23ff66b7%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%3Cpolyline%20points%3D%2260%2C420%20160%2C380%20260%2C400%20360%2C320%20460%2C345%20560%2C260%20660%2C290%22/%3E%3C/g%3E%0A%3Cg%20fill%3D%22%23c10067%22%3E%3Crect%20x%3D%22300%22%20y%3D%22440%22%20width%3D%2230%22%20height%3D%2260%22/%3E%3Crect%20x%3D%22345%22%20y%3D%22410%22%20width%3D%2230%22%20height%3D%2290%22/%3E%3Crect%20x%3D%22390%22%20y%3D%22380%22%20width%3D%2230%22%20height%3D%22120%22/%3E%3Crect%20x%3D%22435%22%20y%3D%22350%22%20width%3D%2230%22%20height%3D%22150%22/%3E%3C/g%3E%0A%3Ctext%20x%3D%22620%22%20y%3D%22480%22%20font-family%3D%22serif%22%20font-size%3D%2290%22%20fill%3D%22%23ff89c8%22%20opacity%3D%220.9%22%3E%E2%82%B9%3C/text%3E%0A%3C/svg%3E", "gallery": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20600%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%0A%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22%23ffeaf3%22/%3E%3Crect%20y%3D%220%22%20width%3D%22800%22%20height%3D%22150%22%20fill%3D%22%23ff89c8%22/%3E%3Crect%20y%3D%22150%22%20width%3D%22800%22%20height%3D%22130%22%20fill%3D%22%23fff6fa%22/%3E%3Crect%20y%3D%22280%22%20width%3D%22800%22%20height%3D%22120%22%20fill%3D%22%23ff66b7%22/%3E%3Crect%20y%3D%22400%22%20width%3D%22800%22%20height%3D%22200%22%20fill%3D%22%234c0028%22/%3E%0A%3Cg%20fill%3D%22%231a0410%22%20opacity%3D%220.85%22%3E%0A%3Crect%20x%3D%22140%22%20y%3D%22180%22%20width%3D%22200%22%20height%3D%22150%22%20rx%3D%2210%22/%3E%3Crect%20x%3D%22360%22%20y%3D%22150%22%20width%3D%22220%22%20height%3D%22180%22%20rx%3D%2210%22/%3E%3Crect%20x%3D%22600%22%20y%3D%22200%22%20width%3D%22150%22%20height%3D%22130%22%20rx%3D%2210%22/%3E%0A%3Ccircle%20cx%3D%22240%22%20cy%3D%22255%22%20r%3D%2230%22%20fill%3D%22%23ff42a7%22/%3E%3Ccircle%20cx%3D%22470%22%20cy%3D%22240%22%20r%3D%2234%22%20fill%3D%22%23ff66b7%22/%3E%3Ccircle%20cx%3D%22675%22%20cy%3D%22265%22%20r%3D%2224%22%20fill%3D%22%23c10067%22/%3E%0A%3C/g%3E%3C/svg%3E", "team": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20600%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%0A%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22%23ff89c8%22/%3E%3Crect%20y%3D%220%22%20width%3D%22800%22%20height%3D%22150%22%20fill%3D%22%23ffeaf3%22/%3E%3Crect%20y%3D%22150%22%20width%3D%22800%22%20height%3D%22130%22%20fill%3D%22%23ff66b7%22/%3E%3Crect%20y%3D%22280%22%20width%3D%22800%22%20height%3D%22120%22%20fill%3D%22%23a80059%22/%3E%3Crect%20y%3D%22400%22%20width%3D%22800%22%20height%3D%22200%22%20fill%3D%22%234c0028%22/%3E%0A%3Cg%20fill%3D%22%231a0410%22%20opacity%3D%220.88%22%3E%0A%3Ccircle%20cx%3D%22260%22%20cy%3D%22260%22%20r%3D%2246%22/%3E%3Crect%20x%3D%22200%22%20y%3D%22310%22%20width%3D%22120%22%20height%3D%22120%22%20rx%3D%2220%22/%3E%0A%3Ccircle%20cx%3D%22420%22%20cy%3D%22230%22%20r%3D%2252%22/%3E%3Crect%20x%3D%22352%22%20y%3D%22286%22%20width%3D%22136%22%20height%3D%22140%22%20rx%3D%2220%22/%3E%0A%3Ccircle%20cx%3D%22580%22%20cy%3D%22260%22%20r%3D%2246%22/%3E%3Crect%20x%3D%22520%22%20y%3D%22310%22%20width%3D%22120%22%20height%3D%22120%22%20rx%3D%2220%22/%3E%0A%3C/g%3E%3C/svg%3E", "leaf": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20600%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%0A%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22%23ffeaf3%22/%3E%3Crect%20y%3D%220%22%20width%3D%22800%22%20height%3D%22150%22%20fill%3D%22%23ff89c8%22/%3E%3Crect%20y%3D%22150%22%20width%3D%22800%22%20height%3D%22130%22%20fill%3D%22%23fff6fa%22/%3E%3Crect%20y%3D%22280%22%20width%3D%22800%22%20height%3D%22120%22%20fill%3D%22%23ff66b7%22/%3E%3Crect%20y%3D%22400%22%20width%3D%22800%22%20height%3D%22200%22%20fill%3D%22%234c0028%22/%3E%0A%3Cg%20fill%3D%22%231a0410%22%20opacity%3D%220.85%22%3E%0A%3Cpath%20d%3D%22M400%20460%20C260%20460%20180%20360%20180%20220%20C340%20220%20400%20300%20400%20460%20Z%22/%3E%0A%3Cpath%20d%3D%22M400%20460%20C540%20460%20620%20360%20620%20220%20C460%20220%20400%20300%20400%20460%20Z%22/%3E%0A%3Crect%20x%3D%22392%22%20y%3D%22440%22%20width%3D%2216%22%20height%3D%2280%22/%3E%0A%3C/g%3E%3C/svg%3E"};
+  const PAGES = {"vision-mission": {"cat": "Overview", "title": "Vision, Mission & Core Values", "img": "consult", "video": false, "body": ["Vision: \"To emerge as a leading Mining and Power Company, with social responsiveness accelerating Nation's growth.\" ESG Vision: \"To continue to be a socially responsive company.\"", "Mission: Continue to develop and sustain expertise in Power and Mining with focus on growth and financial strength. Be socially responsive, achieve sustainable development and be sensitive to emerging environmental issues. Strive to achieve excellence in processes and practices. To nurture talent, encourage innovation and foster collaborative culture. ESG Vision: \"To play an active role in society and be sensitive to emerging environment issues.\"", "Core Values \u2014 NLCIL COMMITS: National Orientation, Learning & Development, Commitment to Excellence, Innovation & Creativity, Loyalty & Leadership, Customer Focus, Organisational Pride, Mutual Trust, Motivation, Integrity, Total Quality, Safety & Sustainability."]}, "about-nlcil": {"cat": "Overview", "title": "About NLCIL", "img": "thermal", "video": true, "body": ["NLC India Limited is a Navratna Government of India Enterprise under the Ministry of Coal, headquartered in Neyveli, Tamil Nadu. Incorporated in 1956, it has spent nearly seven decades mining lignite and converting it into grid-scale electricity \u2014 today running 8,405.26 MW of power generation capacity and 59.10 MTPA of mining capacity, with 9,483 employees across the country.", "What began as a single-purpose lignite miner has diversified into thermal power, solar, wind, and now battery storage and green hydrogen pilots \u2014 pursuing a target of 20,130 MW of installed capacity by 2030."]}, "nlcil-history": {"cat": "Overview", "title": "NLCIL History", "img": "mining", "video": true, "body": ["NLC was established in 1956 to mine lignite discovered in Neyveli. Through the 1960s\u201380s, multiple open-cast mines were commissioned to scale output, and through the 1980s\u20132000s a growing fleet of pithead thermal power stations was built to turn that lignite into electricity for the southern grid.", "The 2010s brought the company's first solar and wind assets \u2014 a strategic pivot that accelerated through the 2020s, when NLC crossed gigawatt-scale solar capacity and marked 70 years of operation."]}, "our-journey": {"cat": "Overview", "title": "Our Journey", "img": "solar", "video": false, "body": ["From a single lignite seam in Neyveli to a nationwide footprint spanning Tamil Nadu, Rajasthan, Uttar Pradesh, Odisha and beyond \u2014 NLC's journey has been one of steady diversification: mining, then thermal power, then renewables, and now storage and hydrogen pilots.", "Each stage has been layered on the last rather than replacing it, which is why the company still operates six decades-old mining infrastructure alongside some of India's newest solar parks."]}, "nlcil-projects": {"cat": "Overview", "title": "NLCIL Projects", "img": "spreader", "video": false, "body": ["Current and upcoming projects span four open-cast lignite mines at Neyveli and Barsingsar, thermal stations totalling 8,405.26 MW, and a renewable pipeline of solar, wind, and battery storage assets across Rajasthan, Tamil Nadu, Odisha and Assam.", "Joint ventures carrying these projects forward include NLC Tamilnadu Power, Neyveli Uttar Pradesh Power, NLC India Renewables, and NIRL entities in Assam, Rajasthan and with NCRTC \u2014 each targeting a share of the 20,130 MW capacity planned by 2030."]}, "board-of-directors": {"cat": "Overview", "title": "Board of Directors", "img": "consult", "video": false, "body": ["As a Navratna CPSE under the Ministry of Coal, NLC India Limited is governed by a Board comprising whole-time functional directors, government nominee directors, and independent directors, chaired by the Chairman-cum-Managing Director.", "The Board oversees strategy across mining, thermal, and renewable operations, and reports to shareholders through the annual report and periodic BSE/NSE disclosures. Full director profiles are published in the Corporate Governance section of the statutory annual report."]}, "general-information": {"cat": "Overview", "title": "General Information", "img": "consult", "video": false, "body": ["NLC India Limited \u2014 Corporate Office: Block-1, Neyveli Township, Cuddalore District, Tamil Nadu \u2013 607801. CIN and statutory registrations are filed with the Ministry of Corporate Affairs; the company is listed on both the BSE and NSE.", "General correspondence can be routed to info@nlcindia.in or the corporate office address above; investor-specific queries are handled separately through the Investor Grievances desk."]}, "performance": {"cat": "Overview", "title": "Performance", "img": "finance", "video": false, "body": ["Operationally, NLC runs 8,405.26 MW of power generation capacity and 59.10 MTPA of mining capacity across its mines and thermal stations, supported by 9,483 employees.", "Financial performance \u2014 revenue, profitability, and segment-wise results \u2014 is published quarterly to the stock exchanges and summarised in the annual report; see Financial Performance under Investors for the latest figures."]}, "corporate-profile": {"cat": "Overview", "title": "Corporate Profile", "img": "thermal", "video": false, "body": ["Sector: Mining & Power Generation. Status: Navratna Government of India Enterprise, Ministry of Coal. Founded: 1956. Headquarters: Neyveli, Tamil Nadu. Listed on: BSE, NSE.", "Core businesses: lignite mining, thermal power generation, renewable energy (solar, wind, battery storage), and mining/power sector consultancy \u2014 run through NLC India Limited and its subsidiaries and joint ventures."]}, "roll-of-honour": {"cat": "Overview", "title": "Roll of Honour", "img": "team", "video": false, "body": ["NLC India Limited's Roll of Honour recognises employees and teams for outstanding safety records, operational excellence, and contributions to the company's sustainability and CSR goals.", "Recent recognitions include teams behind the Talabira II & III coal project ramp-up, the crossing of 1 GW solar capacity, and the Smart Coal Exchange digital platform rollout."]}, "new-initiatives": {"cat": "Overview", "title": "New Initiatives", "img": "solar", "video": false, "body": ["Current initiatives include large-scale hi-tech agriculture on mined-out land to demonstrate reclaimed-land fertility, a Smart Digital Coal Exchange platform for transparent price discovery, and joint ventures such as the recent agreement with OREDA for green energy projects in Odisha.", "Longer-term, NLC is piloting battery storage and green hydrogen projects as part of its post-2030 energy strategy."]}, "human-resource": {"cat": "Overview", "title": "Human Resource", "img": "team", "video": false, "body": ["NLC employs 9,483 people across mining, thermal, and renewable operations nationwide, supported by structured training, cross-functional exposure, and clear paths from field operations to corporate leadership.", "HR policy covers recruitment, apprenticeships, welfare schemes for the Neyveli and Barsingsar townships, and the CARE Portal for ex-employees. See Careers for current openings."]}, "annual-reports": {"cat": "Investors", "title": "Annual Reports", "img": "finance", "video": false, "body": ["Annual reports cover full-year financial performance, segment-wise disclosures, corporate governance, and sustainability reporting for NLC India Limited, filed in line with BSE and NSE listing requirements.", "Use the year links to jump to a specific report, or the archive link for older filings."]}, "annual-report-2526": {"cat": "Investors", "title": "Annual Report 2025 \u2013 26", "img": "finance", "video": false, "body": ["The 2025\u201326 annual report covers a year in which power generation capacity stood at 8,405.26 MW and mining capacity at 59.10 MTPA, alongside continued progress toward the 20,130 MW capacity target for 2030.", "Full financials, auditor's report, and governance disclosures are published alongside the statutory filing to BSE and NSE."]}, "annual-report-2425": {"cat": "Investors", "title": "Annual Report 2024 \u2013 25", "img": "finance", "video": false, "body": ["The 2024\u201325 annual report details the year's mining output, thermal generation, and renewable capacity additions, along with the standard financial statements and director's report."]}, "annual-report-2324": {"cat": "Investors", "title": "Annual Report 2023 \u2013 24", "img": "finance", "video": false, "body": ["The 2023\u201324 annual report captures a year of continued renewable scale-up as NLC worked toward gigawatt-class solar capacity, alongside its established mining and thermal operations."]}, "annual-report-archive": {"cat": "Investors", "title": "Annual Report Archive", "img": "finance", "video": false, "body": ["Historical annual reports going back multiple decades are maintained for shareholder reference, tracking NLC's evolution from a single-purpose lignite miner to a diversified mining, power and renewables enterprise."]}, "financial-performance": {"cat": "Investors", "title": "Financial Performance", "img": "finance", "video": false, "body": ["Quarterly results, revenue trends, and segment-wise breakdowns across mining, thermal power, and renewables are published to BSE and NSE each quarter.", "Headline operating figures: 8,405.26 MW power generation capacity, 59.10 MTPA mining capacity, and a 20,130 MW capacity target by 2030."]}, "corporate-governance": {"cat": "Investors", "title": "Corporate Governance", "img": "consult", "video": false, "body": ["NLC's governance framework covers Board composition, committee charters, related-party policies, and statutory disclosures required of a listed Navratna CPSE.", "Governance reports are published alongside each annual report and reviewed by independent directors on the Board."]}, "stock-information": {"cat": "Investors", "title": "Stock Information", "img": "finance", "video": false, "body": ["NLC India Limited shares are traded on both the BSE and NSE. Share price data, trading volumes, and historical charts are available directly through the exchanges.", "For shareholding pattern and dividend history, see the linked pages in this section."]}, "shareholding-pattern": {"cat": "Investors", "title": "Shareholding Pattern", "img": "finance", "video": false, "body": ["As a Government of India Navratna enterprise, the majority shareholding in NLC India Limited rests with the President of India, with the remainder held by public shareholders, institutions, and mutual funds.", "Quarterly shareholding pattern filings are submitted to BSE and NSE in line with SEBI listing regulations."]}, "dividend-history": {"cat": "Investors", "title": "Dividend History", "img": "finance", "video": false, "body": ["NLC has a track record of periodic dividend payouts to shareholders, declared by the Board in line with the company's dividend distribution policy and profitability each fiscal year."]}, "investor-grievances": {"cat": "Investors", "title": "Investor Grievances", "img": "consult", "video": false, "body": ["Shareholder queries relating to dividends, share transfers, or annual report requests can be routed through the company's Registrar and Share Transfer Agent, or directly to the Investor Relations desk at the corporate office in Neyveli."]}, "current-openings": {"cat": "Career", "title": "Current Openings", "img": "team", "video": false, "body": ["NLC recruits across mining engineering, thermal and renewable operations, finance, HR, and corporate functions, with roles based primarily in Neyveli (Tamil Nadu) and Barsingsar (Rajasthan), alongside project sites in Odisha, Uttar Pradesh and elsewhere.", "Openings are published through official recruitment notifications; apprenticeship and graduate trainee intakes run on a periodic cycle."]}, "why-join-nlc": {"cat": "Career", "title": "Why Join NLC", "img": "team", "video": true, "body": ["NLC offers exposure across mining, thermal power and renewables under one roof, with structured training and cross-functional rotation from day one \u2014 and clear paths from field operations to corporate leadership across its 9,483-strong workforce.", "Meet Neyon, NLC's official mascot marking 70 years of \"Energizing the Nation with Sustainability\" \u2014 a reminder that the company's culture leans as much on legacy as on where it's headed next."]}, "employee-corner": {"cat": "Career", "title": "Employee Corner", "img": "team", "video": false, "body": ["The Employee Corner portal gives serving employees access to payslips, leave management, internal circulars, and welfare scheme applications for the Neyveli and Barsingsar townships."]}, "care-portal": {"cat": "Career", "title": "CARE Portal (Ex-employee)", "img": "team", "video": false, "body": ["The CARE Portal is a dedicated ex-employee portal for pension, provident fund, and retiree welfare services, keeping former NLC staff connected to company benefits after superannuation."]}, "apprenticeship": {"cat": "Career", "title": "Apprenticeship", "img": "team", "video": false, "body": ["NLC runs structured apprenticeship programmes across its mining and power operations, giving trainees hands-on exposure to lignite extraction, thermal plant operations, and renewable energy systems under the guidance of experienced engineers."]}, "hr-policy": {"cat": "Career", "title": "Human Resource Policy", "img": "consult", "video": false, "body": ["HR policy at NLC covers recruitment, training and development, welfare and township administration, safety standards, and the grievance redressal mechanisms available to all 9,483 employees across the company."]}, "environmental-protection": {"cat": "Sustainability", "title": "Environmental Protection", "img": "drainage", "video": false, "body": ["Environmental protection at NLC spans mine-water management, air and dust control at thermal stations, and reclamation of mined-out land \u2014 including large-scale hi-tech agriculture projects that turn former mining areas into productive farmland.", "These efforts sit alongside a company-wide push toward renewable capacity, reducing the environmental footprint of new generation added to the grid."]}, "afforestation": {"cat": "Sustainability", "title": "Afforestation Programs", "img": "leaf", "video": false, "body": ["NLC runs afforestation programmes across reclaimed mining land in Neyveli and Barsingsar, restoring green cover and biodiversity to areas previously used for open-cast lignite extraction.", "Internal tracking currently puts afforestation programme progress at roughly 65% of its target scope, one of five sustainability metrics the company monitors company-wide."]}, "carbon-reduction": {"cat": "Sustainability", "title": "Carbon Reduction", "img": "leaf", "video": false, "body": ["Carbon reduction efforts are anchored in NLC's shift toward renewables \u2014 solar, wind, and planned battery storage and green hydrogen \u2014 intended to offset the emissions intensity of its legacy lignite-based thermal fleet as capacity grows toward 20,130 MW by 2030."]}, "csr-initiatives": {"cat": "Sustainability", "title": "CSR Initiatives", "img": "township", "video": false, "body": ["Corporate social responsibility work includes drinking-water projects for communities near mining sites (such as the Chaltikira village project near Talabira), education and healthcare support in Neyveli and Barsingsar townships, and disaster-relief contributions during national emergencies."]}, "esg-reports": {"cat": "Sustainability", "title": "ESG Reports", "img": "lake", "video": false, "body": ["ESG disclosures cover environmental performance (afforestation, carbon reduction, water management), social impact (CSR, employee welfare, community programmes), and governance ratings tied to NLC's status as a listed Navratna CPSE.", "Use the branches below for a closer look at each ESG pillar."]}, "environmental-disclosures": {"cat": "Sustainability", "title": "Environmental Disclosures", "img": "lake", "video": false, "body": ["Environmental disclosures report emissions, water usage, land reclamation, and renewable capacity additions each year, benchmarked against NLC's sustainability targets."]}, "social-impact": {"cat": "Sustainability", "title": "Social Impact", "img": "team", "video": false, "body": ["Social impact reporting covers CSR spend, community welfare programmes around Neyveli and Barsingsar, and workforce welfare initiatives across NLC's 9,483 employees."]}, "governance-ratings": {"cat": "Sustainability", "title": "Governance Ratings", "img": "consult", "video": false, "body": ["As a listed Navratna CPSE, NLC's governance practices are assessed against SEBI listing norms and periodically rated by external ESG rating agencies alongside its environmental and social performance."]}, "latest-news": {"cat": "Media", "title": "Latest News", "img": "gallery", "video": false, "body": ["Recent headlines include NLC India Renewables signing a joint venture with OREDA for green energy projects in Odisha, new solar capacity coming online, and the Smart Digital Coal Exchange platform going live for producers and consumers."]}, "press-releases": {"cat": "Media", "title": "Press Releases", "img": "gallery", "video": false, "body": ["Official press releases cover project commissioning, financial results, joint ventures, and leadership announcements \u2014 issued directly by NLC's corporate communications team and filed with BSE/NSE where relevant."]}, "event-diary": {"cat": "Media", "title": "Event Diary", "img": "gallery", "video": false, "body": ["The event diary tracks NLC's public and internal events \u2014 signing ceremonies, Raising Day celebrations, sustainability summits, and township community events across Neyveli and Barsingsar."]}, "photo-gallery": {"cat": "Media", "title": "Photo Gallery", "img": "gallery", "video": false, "body": ["The photo gallery documents NLC's mines, thermal stations, renewable projects, and community programmes. Browse by Events, Projects, or CSR Activities below."]}, "gallery-events": {"cat": "Media", "title": "Photo Gallery \u2014 Events", "img": "gallery", "video": false, "body": ["Photos from NLC's public events: JV signing ceremonies, Raising Day celebrations, and milestone commissioning events across its mining and power sites."]}, "gallery-projects": {"cat": "Media", "title": "Photo Gallery \u2014 Projects", "img": "wind", "video": false, "body": ["Photos of NLC's mines, thermal stations, and renewable installations \u2014 from the original Neyveli lignite seams to the newest solar parks in Tamil Nadu and Rajasthan."]}, "gallery-csr": {"cat": "Media", "title": "Photo Gallery \u2014 CSR Activities", "img": "township", "video": false, "body": ["Photos from NLC's community programmes \u2014 drinking-water projects, township welfare initiatives, and educational support around its mining and power sites."]}, "video-gallery": {"cat": "Media", "title": "Video Gallery", "img": "thermal", "video": true, "body": ["Watch NLC India Limited's corporate video below, covering its integrated approach to mining, thermal power, renewable energy, and afforestation across a nationwide footprint.", "Additional videos covering project commissioning and CSR work are published on NLC's official YouTube channel."]}};
+  const YT_VIDEO_ID = "AW2gKfYbqNI";
+  const YT_EMBED = "https://www.youtube.com/embed/" + YT_VIDEO_ID + "?autoplay=1&rel=0&modestbranding=1";
+  const YT_WATCH = "https://www.youtube.com/watch?v=" + YT_VIDEO_ID;
+  // Real photos published by the Ministry of Coal, Government of India (public photo gallery)
+  const COAL_BASE = "https://coal.nic.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2019-09/";
+  const REAL_PHOTO_MINING = COAL_BASE + "nlc-2_0.jpg";
+  const REAL_IMG = {
+    mining:    { src: COAL_BASE + "nlc-2_0.jpg", alt: "700 Litre Bucket Wheel Excavator in operation at an NLC lignite mine" },
+    spreader:  { src: COAL_BASE + "nlc-6_0.jpg", alt: "20,000 TPH Spreader in operation in an NLC mine dump" },
+    drainage:  { src: COAL_BASE + "nlc-1_0.jpg", alt: "Drainage management system in an NLC mine dump" },
+    lake:      { src: COAL_BASE + "nlc-3_0.jpg", alt: "A lake developed within a reclaimed NLC mine dump" },
+    leaf:      { src: COAL_BASE + "nlc-5.jpg",   alt: "Plantation in an NLC mine dump for slope stabilisation" },
+    township:  { src: COAL_BASE + "nlc-7.jpg",   alt: "Greenbelt development in an NLC township" },
+    wind:      { src: COAL_BASE + "nlc-8.jpg",   alt: "NLC's 51 MW wind power plant at Kazhuneerkulam, Tamil Nadu" },
+  };
+
+  const homeMain = document.getElementById('homeMain');
+  const pageMain = document.getElementById('pageMain');
+  const pageBreadcrumb = document.getElementById('pageBreadcrumb');
+  const pageTitle = document.getElementById('pageTitle');
+  const pageMedia = document.getElementById('pageMedia');
+  const pageText = document.getElementById('pageText');
+
+  function slugToTitle(slug) {
+    return slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  }
+
+  function renderPage(slug, fallbackTitle, fallbackCat) {
+    const p = PAGES[slug] || {
+      cat: fallbackCat || 'NLC India',
+      title: fallbackTitle || slugToTitle(slug),
+      img: 'consult',
+      video: false,
+      body: ["This section is part of NLC India Limited's " + (fallbackCat || 'corporate') + " information. Full details are published on the official site; in the meantime, here's an overview based on NLC's public profile as a Navratna Government of India Enterprise running 8,405.26 MW of power generation capacity, 59.10 MTPA of mining capacity, and a 20,130 MW capacity target by 2030."]
+    };
+    pageBreadcrumb.textContent = 'Home / ' + p.cat;
+    pageTitle.textContent = p.title;
+    pageMedia.innerHTML = p.video
+      ? `<div class="video-card" data-tilt3d>
+           <img class="video-poster" src="${REAL_PHOTO_MINING}" alt="700 Litre Bucket Wheel Excavator in operation at an NLC lignite mine (Ministry of Coal)">
+           <div class="video-sheen"></div>
+           <button class="video-play" type="button" aria-label="Play video">▶</button>
+         </div>
+         <a class="video-fallback" href="${YT_WATCH}" target="_blank" rel="noopener">▶ Watch this video on YouTube</a>`
+      : (REAL_IMG[p.img]
+          ? `<div class="photo-tilt" data-tilt3d>
+               <img src="${REAL_IMG[p.img].src}" alt="${REAL_IMG[p.img].alt}">
+               <div class="video-sheen"></div>
+             </div>
+             <p class="photo-credit">Photo: Ministry of Coal, Government of India</p>`
+          : `<div class="photo-tilt" data-tilt3d>
+               <img src="${IMG[p.img] || IMG.consult}" alt="${p.title} illustration">
+             </div>`);
+    pageMedia.querySelectorAll('[data-tilt3d]').forEach(tiltCard => {
+      tiltCard.addEventListener('mousemove', (ev) => {
+        const rect = tiltCard.getBoundingClientRect();
+        const px = (ev.clientX - rect.left) / rect.width - 0.5;
+        const py = (ev.clientY - rect.top) / rect.height - 0.5;
+        tiltCard.style.transform = `rotateY(${px * 14}deg) rotateX(${-py * 14}deg) scale(1.02)`;
+      });
+      tiltCard.addEventListener('mouseleave', () => {
+        tiltCard.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
+      });
+    });
+    pageText.innerHTML = p.body.map(para => `<p>${para}</p>`).join('');
+    homeMain.hidden = true;
+    pageMain.hidden = false;
+    window.scrollTo(0, 0);
+    document.title = p.title + ' | NLC India Limited';
+  }
+
+  function showHome() {
+    pageMain.hidden = true;
+    homeMain.hidden = false;
+    document.title = 'NLC India Limited | Navratna PSU — Mining. Power. Renewal.';
+    if (location.hash.startsWith('#/page/')) history.pushState('', document.title, window.location.pathname + window.location.search);
+  }
+
+  document.addEventListener('click', (e) => {
+    const playBtn = e.target.closest('.video-play');
+    if (playBtn) {
+      const card = playBtn.closest('.video-card');
+      card.innerHTML = `<iframe src="${YT_EMBED}" title="NLC India video" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>`;
+      return;
+    }
+    const link = e.target.closest('a[data-page]');
+    if (link) {
+      e.preventDefault();
+      const slug = link.dataset.page;
+      const catEl = link.closest('.nav-item') ? link.closest('.nav-item').querySelector(':scope > a') : null;
+      const cat = catEl ? catEl.textContent.replace('⌄','').trim() : '';
+      history.pushState({ slug: slug }, '', '#/page/' + slug);
+      renderPage(slug, link.textContent.replace('›','').trim(), cat);
+      dropdownItems.forEach(i => i.classList.remove('open'));
+      submenuItems.forEach(i => i.classList.remove('open'));
+    }
+  });
+
+  const pageBack = document.getElementById('pageBack');
+  const pageBackBottom = document.getElementById('pageBackBottom');
+  pageBack && pageBack.addEventListener('click', showHome);
+  pageBackBottom && pageBackBottom.addEventListener('click', showHome);
+
+  const brandHome = document.getElementById('brandHome');
+  brandHome && brandHome.addEventListener('click', (e) => {
+    if (!pageMain.hidden) { e.preventDefault(); showHome(); }
+  });
+
+  window.addEventListener('popstate', () => {
+    if (location.hash.startsWith('#/page/')) {
+      const slug = location.hash.replace('#/page/', '');
+      renderPage(slug);
+    } else {
+      showHome();
+    }
+  });
+
+  if (location.hash.startsWith('#/page/')) {
+    renderPage(location.hash.replace('#/page/', ''));
+  }
+
+  /* ---------- mobile menu ---------- */
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle && navToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu && mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  /* ---------- scroll reveal ---------- */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ---------- animated stat counters ---------- */
+  const counters = document.querySelectorAll('.stat-num');
+  const counterIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseFloat(el.dataset.count || '0');
+      const decimals = parseInt(el.dataset.decimals || '0', 10);
+      const suffix = el.dataset.suffix !== undefined ? el.dataset.suffix : '';
+      const duration = 1600;
+      const start = performance.now();
+      function tick(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const val = target * eased;
+        el.textContent = (decimals ? val.toFixed(decimals) : Math.round(val).toLocaleString('en-IN')) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = (decimals ? target.toFixed(decimals) : Math.round(target).toLocaleString('en-IN')) + suffix;
+      }
+      requestAnimationFrame(tick);
+      counterIO.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(el => counterIO.observe(el));
+
+  /* ---------- sustainability rings ---------- */
+  const rings = document.querySelectorAll('.ring-fill');
+  const ringIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const pct = parseFloat(el.dataset.pct || '0');
+      const circumference = 326.7;
+      const offset = circumference - (pct / 100) * circumference;
+      requestAnimationFrame(() => { el.style.strokeDashoffset = offset; });
+      ringIO.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  rings.forEach(el => ringIO.observe(el));
+
+  /* ---------- news slider dots ---------- */
+  const track = document.getElementById('newsTrack');
+  const dotsWrap = document.getElementById('newsDots');
+  if (track && dotsWrap) {
+    const cards = track.querySelectorAll('.news-card');
+    cards.forEach((_, i) => {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        cards[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      });
+      dotsWrap.appendChild(dot);
+    });
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / (cards[0].offsetWidth + 22));
+      [...dotsWrap.children].forEach((d, i) => d.classList.toggle('active', i === idx));
+    });
+  }
+
+  /* ---------- contact form ---------- */
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  form && form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    status.textContent = 'Thank you — your message has been noted. Our team will respond shortly.';
+    form.reset();
+  });
+
+  /* ---------- header shrink on scroll ---------- */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) nav.style.boxShadow = '0 8px 24px rgba(0,0,0,.35)';
+    else nav.style.boxShadow = 'none';
+  });
+
+  /* ---------- ember canvas (ambient particles in hero) ---------- */
+  const canvas = document.getElementById('emberCanvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let w, h, particles = [];
+    const colors = ['#ff1e96', '#ff66b7', '#ff89c8', '#c10067'];
+
+    function resize() {
+      w = canvas.width = canvas.offsetWidth;
+      h = canvas.height = canvas.offsetHeight;
+    }
+    function makeParticle() {
+      return {
+        x: Math.random() * w,
+        y: h + Math.random() * 100,
+        r: 1 + Math.random() * 2.4,
+        speed: 0.3 + Math.random() * 0.8,
+        drift: (Math.random() - 0.5) * 0.4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        alpha: 0.2 + Math.random() * 0.5
+      };
+    }
+    function init() {
+      resize();
+      const count = Math.min(70, Math.floor(w / 18));
+      particles = Array.from({ length: count }, () => {
+        const p = makeParticle();
+        p.y = Math.random() * h;
+        return p;
+      });
+    }
+    function animate() {
+      ctx.clearRect(0, 0, w, h);
+      particles.forEach(p => {
+        p.y -= p.speed;
+        p.x += p.drift;
+        if (p.y < -10) { Object.assign(p, makeParticle()); }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.alpha;
+        ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(animate);
+    }
+    window.addEventListener('resize', resize);
+    init();
+    animate();
+  }
+});
+
+</script>
+</body>
+</html>
